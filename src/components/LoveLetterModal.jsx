@@ -83,10 +83,68 @@ export default function LoveLetterModal({ isOpen, onClose, onReveal }) {
                     Authorization: ❤ granted
                   </p>
                 </motion.div>
-              ) : null}
+              ) : (
+                <motion.div
+                  key="letter"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  className="relative z-10"
+                >
+                  {/* Greeting */}
+                  <motion.h2
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.2 }}
+                    className="text-2xl md:text-3xl font-light text-love-pink mb-8 text-glow-pink"
+                  >
+                    {LOVE_LETTER.greeting}
+                  </motion.h2>
+
+                  {/* Letter body */}
+                  <div className="space-y-5">
+                    {LOVE_LETTER.paragraphs.map((p, i) => (
+                      <motion.p
+                        key={i}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3 + i * 0.15 }}
+                        className="text-slate-300 text-sm md:text-base leading-relaxed font-light"
+                      >
+                        {p}
+                      </motion.p>
+                    ))}
+                  </div>
+
+                  {/* Closing */}
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.3 + LOVE_LETTER.paragraphs.length * 0.15 + 0.2 }}
+                    className="mt-10 text-right"
+                  >
+                    <p className="text-slate-400 text-sm italic">{LOVE_LETTER.closing}</p>
+                    <p className="text-love-pink font-medium mt-1 text-glow-pink">
+                      {LOVE_LETTER.signature}
+                    </p>
+                  </motion.div>
+
+                  {/* Close button */}
+                  <motion.button
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1.5 }}
+                    onClick={onClose}
+                    className="mt-8 w-full py-3 rounded-xl text-sm text-white
+                               bg-love-pink/15 hover:bg-love-pink/25 border border-love-pink/20
+                               transition-colors focus:outline-none focus:ring-2 focus:ring-love-pink/40"
+                  >
+                    Close with Love
+                  </motion.button>
+                </motion.div>
+              )}
             </AnimatePresence>
           </motion.div>
-        </motion.div>
       )}
     </AnimatePresence>
   );
