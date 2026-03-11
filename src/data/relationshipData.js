@@ -131,4 +131,23 @@ export const TERMINAL_COMMANDS = {
       '  Exit code: 0 (no errors in our love)',
     ],
   },
+  'deploy hugs': {
+    output: [
+      '> Deploying hugs to production...',
+      '',
+      '  ╔══════════════════════════════════╗',
+      '  ║                                  ║',
+      '  ║    🤗  HUGS DEPLOYED! 🤗         ║',
+      '  ║                                  ║',
+      '  ║    ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥        ║',
+      '  ║    Status: Warm & Fuzzy          ║',
+      '  ║    Coverage: 100%                ║',
+      '  ║    Uptime: Forever               ║',
+      '  ║                                  ║',
+      '  ╚══════════════════════════════════╝',
+      '',
+      '✓ Deployment successful. You are loved.',
+    ],
+    action: 'celebrateHugs',
+  },
 };
