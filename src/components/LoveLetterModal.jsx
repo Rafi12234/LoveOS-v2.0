@@ -145,6 +145,7 @@ export default function LoveLetterModal({ isOpen, onClose, onReveal }) {
               )}
             </AnimatePresence>
           </motion.div>
+        </motion.div>
       )}
     </AnimatePresence>
   );
