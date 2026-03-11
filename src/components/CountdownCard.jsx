@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useCountdown } from '../hooks/useCountdown';
-import { ANNIVERSARY_DATE, RELATIONSHIP_START } from '../data/relationshipData';
+import { ANNIVERSARY_DATE } from '../data/relationshipData';
 import { formatNumber } from '../utils/formatDate';
 
 export default function CountdownCard() {
