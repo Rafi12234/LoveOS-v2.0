@@ -22,3 +22,26 @@ export const BOOT_MESSAGES = [
   '',
   `Welcome back, ${HER_NAME}.`,
 ];
+
+// ─── Terminal Commands ────────────────────────────
+export const TERMINAL_COMMANDS = {
+  help: {
+    output: [
+      '┌─────────────────────────────────────────────┐',
+      '│  LoveOS v2.0 — Available Commands           │',
+      '├─────────────────────────────────────────────┤',
+      '│  help            Show this help menu         │',
+      '│  whoami          Who are you to me?          │',
+      '│  git log         View our commit history     │',
+      '│  show memories   List our memory vault       │',
+      '│  open first-meet Our origin story            │',
+      '│  open love-letter  Decrypt private message   │',
+      '│  run future.sh   Execute future plans        │',
+      '│  deploy hugs     Deploy some hugs 🤗         │',
+      '│  about-us        About this relationship     │',
+      '│  date --anniversary  Anniversary info        │',
+      '│  clear           Clear terminal              │',
+      '└─────────────────────────────────────────────┘',
+    ],
+  },
+};
