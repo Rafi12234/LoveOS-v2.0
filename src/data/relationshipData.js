@@ -44,4 +44,14 @@ export const TERMINAL_COMMANDS = {
       '└─────────────────────────────────────────────┘',
     ],
   },
+  whoami: {
+    output: [
+      `> Querying identity for ${HER_NAME}...`,
+      '',
+      'You are the best thing that ever happened to me.',
+      'Role: Chief Happiness Officer',
+      'Permissions: full access to my heart',
+      'Status: irreplaceable',
+    ],
+  },
 };
