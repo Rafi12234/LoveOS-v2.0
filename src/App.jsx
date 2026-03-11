@@ -10,6 +10,7 @@ export default function App() {
   return (
     <div className="relative min-h-screen overflow-hidden">
       <BackgroundEffects />
+      <div className="scanline-overlay" />
 
       <AnimatePresence mode="wait">
         {!booted ? (
