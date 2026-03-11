@@ -256,4 +256,28 @@ export const COMMIT_HISTORY = [
       note: 'Production ready. Zero critical issues. All hearts passing.',
     },
   },
+  {
+    hash: '9f0a1b2',
+    author: 'love',
+    date: '2025-06-15',
+    message: 'feat: added adventure module with travel support',
+    tag: null,
+    detail: {
+      title: 'Adventures Unlocked',
+      description: 'New memories compiled from new places. Every trip with you is a new branch worth exploring.',
+      note: 'Favorite co-traveler. Favorite everything.',
+    },
+  },
+  {
+    hash: 'e3f4a5b',
+    author: 'forever',
+    date: '2026-03-11',
+    message: 'release: anniversary v2.0 — two years of love',
+    tag: 'v2.0',
+    detail: {
+      title: 'Happy Anniversary v2.0',
+      description: 'Two years. 730 days. Countless moments that made this the greatest project either of us has ever worked on.',
+      note: 'Here\'s to infinite more versions. I love you.',
+    },
+  },
 ];
