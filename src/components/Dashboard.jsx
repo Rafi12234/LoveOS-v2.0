@@ -140,6 +140,15 @@ export default function Dashboard() {
           )}
         </AnimatePresence>
       </main>
+
+      <Footer />
+
+      {/* Love letter modal */}
+      <LoveLetterModal
+        isOpen={letterOpen}
+        onClose={() => setLetterOpen(false)}
+        onReveal={handleLetterReveal}
+      />
     </div>
   );
 }
