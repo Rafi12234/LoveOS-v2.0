@@ -447,3 +447,37 @@ export const ROADMAP_CHECKLIST = [
   { label: 'Increase adventures', done: false },
   { label: 'Long-term partnership mode', done: false },
 ];
+
+// ─── Love Letter ──────────────────────────────────
+export const LOVE_LETTER = {
+  greeting: `Dear ${HER_NAME},`,
+  paragraphs: [
+    'In these two years, you became more than the person I love. You became the person I want to tell everything to. My safest place. My calm after difficult days. My favorite part of ordinary life.',
+    'You are the function I never knew I needed, but now I can\'t imagine my code running without. Every bug in life feels fixable when you\'re on the team. Every feature feels worth building when you\'re the one I\'m building it for.',
+    'I love how you think, how you laugh, how you care so deeply about the things and people you love. I love the tiny things — the way you light up when you solve a bug, the way you send me random thoughts at 2 AM, the way you make even the mundane feel special.',
+    'So I built this little world for you, because a normal message didn\'t feel enough. Because you deserve something as special and unique as you are. Because I wanted you to open something and feel, even for a moment, how much you mean to me.',
+    'Happy 2 years, love. And if life is a long project, you are still my favorite commit.',
+  ],
+  closing: 'Forever yours,',
+  signature: 'Your Developer ❤',
+};
+
+// ─── Quick Commands for Mobile Terminal ───────────
+export const QUICK_COMMANDS = [
+  'help',
+  'whoami',
+  'git log',
+  'show memories',
+  'deploy hugs',
+  'open love-letter',
+];
+
+// ─── Section Labels ───────────────────────────────
+export const SECTIONS = {
+  terminal: { title: 'Terminal', icon: '⌨️', description: 'Talk to LoveOS' },
+  timeline: { title: 'Commit Timeline', icon: '📜', description: 'Our git history' },
+  memories: { title: 'Memory Vault', icon: '💾', description: 'Core memory files' },
+  roadmap: { title: 'Future Roadmap', icon: '🗺️', description: 'What\'s coming next' },
+  letter: { title: 'Hidden Letter', icon: '💌', description: 'Encrypted message' },
+  stats: { title: 'Anniversary Stats', icon: '📊', description: 'Our numbers' },
+};
