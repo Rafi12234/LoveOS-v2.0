@@ -5,9 +5,19 @@ import Dashboard from './components/Dashboard';
 import BackgroundEffects from './components/BackgroundEffects';
 
 export default function App() {
+  const [booted, setBooted] = useState(false);
+
   return (
     <div className="relative min-h-screen overflow-hidden">
-      <h1 className="text-white text-center pt-20 text-4xl">LoveOS v2.0</h1>
+      <BackgroundEffects />
+
+      <AnimatePresence mode="wait">
+        {!booted ? (
+          <BootScreen key="boot" onComplete={() => setBooted(true)} />
+        ) : (
+          <Dashboard key="dashboard" />
+        )}
+      </AnimatePresence>
     </div>
   );
 }
