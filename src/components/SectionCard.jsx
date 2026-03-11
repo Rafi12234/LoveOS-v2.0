@@ -22,6 +22,12 @@ export default function SectionCard({ icon, title, description, onClick, delay =
       <p className="text-slate-400 text-sm leading-relaxed">
         {description}
       </p>
+      <div className="mt-4 flex items-center gap-1.5 text-xs text-love-violet opacity-0 group-hover:opacity-100 transition-opacity">
+        <span>Open</span>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
+      </div>
     </motion.button>
   );
 }
