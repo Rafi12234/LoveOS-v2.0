@@ -362,4 +362,22 @@ export const MEMORY_CATEGORIES = [
       },
     ],
   },
+  {
+    name: 'Challenges We Survived',
+    emoji: '💪',
+    memories: [
+      {
+        title: 'The Distance Phase',
+        description: 'Miles apart but never disconnected. We proved that our connection has zero latency, no matter the distance.',
+        date: '2024-11',
+        emoji: '🌍',
+      },
+      {
+        title: 'The Tough Conversation',
+        description: 'Hard words, soft hearts. We chose understanding over ego, and came out stronger.',
+        date: '2024-07',
+        emoji: '🤝',
+      },
+    ],
+  },
 ];
