@@ -2,6 +2,7 @@
   "name": "loveos-v2",
   "private": true,
   "version": "2.0.0",
+  "description": "A developer-themed anniversary web app built with love",
   "type": "module",
   "scripts": {
     "dev": "vite",
