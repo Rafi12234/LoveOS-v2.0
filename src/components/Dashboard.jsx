@@ -152,3 +152,22 @@ export default function Dashboard() {
     </div>
   );
 }
+
+// Elegant confetti burst
+function fireConfetti() {
+  const defaults = {
+    spread: 100,
+    ticks: 80,
+    gravity: 0.8,
+    decay: 0.92,
+    startVelocity: 25,
+    colors: ['#a855f7', '#f472b6', '#00f0ff', '#7c3aed', '#6366f1'],
+  };
+
+  confetti({ ...defaults, particleCount: 40, origin: { x: 0.3, y: 0.6 } });
+  confetti({ ...defaults, particleCount: 40, origin: { x: 0.7, y: 0.6 } });
+
+  setTimeout(() => {
+    confetti({ ...defaults, particleCount: 30, origin: { x: 0.5, y: 0.5 }, spread: 120 });
+  }, 200);
+}
