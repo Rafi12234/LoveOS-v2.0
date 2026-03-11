@@ -7,3 +7,7 @@ export function formatDate(dateStr) {
     day: 'numeric',
   });
 }
+
+export function formatNumber(num) {
+  return num.toLocaleString('en-US');
+}
