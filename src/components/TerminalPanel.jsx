@@ -114,6 +114,23 @@ export default function TerminalPanel({ onAction }) {
             )}
           </div>
         ))}
+
+        {/* Active input line */}
+        <div className="flex gap-2 items-center terminal-text text-sm">
+          <span className="text-love-cyan shrink-0">❯</span>
+          <input
+            ref={inputRef}
+            type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={handleKeyDown}
+            className="flex-1 bg-transparent outline-none text-white caret-love-cyan"
+            autoFocus
+            spellCheck={false}
+            aria-label="Terminal input"
+          />
+          <span className="w-2 h-4 bg-love-cyan cursor-blink" />
+        </div>
         <div ref={endRef} />
       </div>
     </motion.div>
