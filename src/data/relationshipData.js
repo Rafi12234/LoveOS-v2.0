@@ -232,4 +232,16 @@ export const COMMIT_HISTORY = [
       note: 'We passed the test. All assertions green.',
     },
   },
+  {
+    hash: 'd3e4f5a',
+    author: 'love',
+    date: '2024-09-01',
+    message: 'feat: first "I love you" pushed to main',
+    tag: 'milestone',
+    detail: {
+      title: 'Three Words, Merged to Main',
+      description: 'The most important commit message ever written. No code review needed — it was already perfect.',
+      note: 'No revert. No rollback. Forever merged.',
+    },
+  },
 ];
