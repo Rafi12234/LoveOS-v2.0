@@ -84,6 +84,33 @@ export default function CommitTimeline() {
                 <span>{isExpanded ? 'collapse' : 'show details'}</span>
               </div>
             </button>
+
+            {/* Expanded detail */}
+            <AnimatePresence>
+              {isExpanded && commit.detail && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="overflow-hidden"
+                >
+                  <div className="mt-3 ml-1 p-4 rounded-xl bg-white/[0.03] border border-white/5">
+                    <h4 className="text-love-cyan font-semibold mb-2">
+                      {commit.detail.title}
+                    </h4>
+                    <p className="text-slate-300 text-sm leading-relaxed mb-3">
+                      {commit.detail.description}
+                    </p>
+                    {commit.detail.note && (
+                      <p className="text-xs text-love-pink/70 italic border-l-2 border-love-pink/30 pl-3">
+                        {commit.detail.note}
+                      </p>
+                    )}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
         );
       })}
