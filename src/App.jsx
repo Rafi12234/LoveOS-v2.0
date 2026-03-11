@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
+import BootScreen from './components/BootScreen';
 
 export default function App() {
   return (
