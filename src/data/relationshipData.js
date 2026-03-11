@@ -181,3 +181,43 @@ export const TERMINAL_COMMANDS = {
     ],
   },
 };
+
+// ─── Commit Timeline ──────────────────────────────
+export const COMMIT_HISTORY = [
+  {
+    hash: 'a1b2c3d',
+    author: 'destiny',
+    date: '2024-03-11',
+    message: 'init: first conversation initialized',
+    tag: null,
+    detail: {
+      title: 'Where It All Began',
+      description: 'A simple hello that would change everything. Neither of us knew that this conversation would become the most important thread in our lives.',
+      note: 'Looking back, I\'m so grateful the universe compiled us into the same scope.',
+    },
+  },
+  {
+    hash: 'e4f5a6b',
+    author: 'heart',
+    date: '2024-04-02',
+    message: 'feat: added first smile that stayed in memory',
+    tag: null,
+    detail: {
+      title: 'The Smile I Can\'t Forget',
+      description: 'That moment when your smile got permanently cached in my memory. No garbage collector could ever clear it.',
+      note: 'Memory leak? More like a memory gift.',
+    },
+  },
+  {
+    hash: 'c7d8e9f',
+    author: 'us',
+    date: '2024-05-15',
+    message: 'feat: implemented trust and comfort modules',
+    tag: null,
+    detail: {
+      title: 'Comfort Zone: Expanded',
+      description: 'We stopped being careful and started being real. Trust installed, walls deprecated.',
+      note: 'Best dependency I ever added to my life.',
+    },
+  },
+];
