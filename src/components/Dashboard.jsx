@@ -100,6 +100,35 @@ export default function Dashboard() {
               </div>
             </motion.div>
           )}
+
+          {activeSection !== 'dashboard' && (
+            <motion.div
+              key="section"
+              ref={sectionRef}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3 }}
+            >
+              {/* Back button */}
+              <button
+                onClick={() => setActiveSection('dashboard')}
+                className="mb-6 flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors
+                           focus:outline-none focus:ring-2 focus:ring-love-violet/30 rounded-lg px-2 py-1"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M19 12H5M12 19l-7-7 7-7" />
+                </svg>
+                Back to Dashboard
+              </button>
+
+              {/* Section title */}
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
+                {SECTIONS[activeSection]?.icon}{' '}
+                {SECTIONS[activeSection]?.title || activeSection}
+              </h2>
+            </motion.div>
+          )}
         </AnimatePresence>
       </main>
     </div>
