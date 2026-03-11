@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* --- Base --- */
+/* ─── Base ─────────────────────────────── */
 * {
   margin: 0;
   padding: 0;
@@ -16,7 +16,7 @@ body {
   overflow-x: hidden;
 }
 
-/* --- Scrollbar --- */
+/* ─── Scrollbar ────────────────────────── */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -29,4 +29,18 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(99, 102, 241, 0.6);
+}
+
+/* ─── Glass Card ───────────────────────── */
+.glass-card {
+  background: rgba(15, 15, 35, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+  border-radius: 16px;
+}
+
+.glass-card-hover:hover {
+  border-color: rgba(99, 102, 241, 0.35);
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.15);
 }
