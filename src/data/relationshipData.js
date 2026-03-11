@@ -7,8 +7,6 @@
 export const HER_NAME = 'My Love';
 export const ANNIVERSARY_DATE = '2024-03-11'; // YYYY-MM-DD format
 export const RELATIONSHIP_START = '2024-03-11';
-export const DASHBOARD_SUBTITLE = 'A digital universe built with love';
-export const DEDICATION = `Dedicated to ${HER_NAME}`;
 
 // ─── Boot Sequence ────────────────────────────────
 export const BOOT_MESSAGES = [
@@ -23,25 +21,81 @@ export const BOOT_MESSAGES = [
   `Welcome back, ${HER_NAME}.`,
 ];
 
+// ─── Memory Images (Cloudinary) ───────────────────
+export const MEMORY_IMAGES = [
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264223/WhatsApp_Image_2026-03-12_at_3.17.03_AM_2_o72xhy.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264223/WhatsApp_Image_2026-03-12_at_3.08.54_AM_eoi5kq.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264224/WhatsApp_Image_2026-03-12_at_3.17.03_AM_wsmub8.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264224/WhatsApp_Image_2026-03-12_at_3.17.04_AM_aylypl.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264224/WhatsApp_Image_2026-03-12_at_3.17.03_AM_1_wqofew.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264221/WhatsApp_Image_2026-03-12_at_3.16.59_AM_vag2l1.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264222/WhatsApp_Image_2026-03-12_at_3.08.53_AM_fhcj9d.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264222/WhatsApp_Image_2026-03-12_at_3.17.01_AM_1_bhfkh5.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264223/WhatsApp_Image_2026-03-12_at_3.08.55_AM_1_vr7vav.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264223/WhatsApp_Image_2026-03-12_at_3.17.02_AM_1_c8mbea.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264222/WhatsApp_Image_2026-03-12_at_3.17.01_AM_vkhks1.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264223/WhatsApp_Image_2026-03-12_at_3.17.02_AM_p1qvx0.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264223/WhatsApp_Image_2026-03-12_at_3.08.54_AM_1_qbiqr7.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264221/WhatsApp_Image_2026-03-12_at_3.08.50_AM_e7i9o0.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264220/WhatsApp_Image_2026-03-12_at_3.08.48_AM_1_rjzsmx.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264221/WhatsApp_Image_2026-03-12_at_3.08.49_AM_dmluzt.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264220/WhatsApp_Image_2026-03-12_at_3.08.47_AM_o3ntp3.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264220/WhatsApp_Image_2026-03-12_at_3.16.58_AM_1_g3rxen.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264222/WhatsApp_Image_2026-03-12_at_3.17.00_AM_ptpzqd.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264220/WhatsApp_Image_2026-03-12_at_3.16.58_AM_2_djqnfy.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264221/WhatsApp_Image_2026-03-12_at_3.08.48_AM_sefc9d.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264221/WhatsApp_Image_2026-03-12_at_3.08.49_AM_1_omu8cc.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264220/WhatsApp_Image_2026-03-12_at_3.16.59_AM_1_bihysk.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264219/WhatsApp_Image_2026-03-12_at_3.16.57_AM_h0oikk.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264219/WhatsApp_Image_2026-03-12_at_3.16.57_AM_1_t1hjuf.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264219/WhatsApp_Image_2026-03-12_at_3.08.41_AM_1_sqs0bb.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264218/WhatsApp_Image_2026-03-12_at_3.09.02_AM_wdykgd.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264219/WhatsApp_Image_2026-03-12_at_3.08.46_AM_rrx5fp.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264219/WhatsApp_Image_2026-03-12_at_3.08.47_AM_1_lffpfs.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264218/WhatsApp_Image_2026-03-12_at_3.08.44_AM_mww0qx.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264217/WhatsApp_Image_2026-03-12_at_3.08.59_AM_2_k0zps3.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264217/WhatsApp_Image_2026-03-12_at_3.08.59_AM_ibtx6b.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264218/WhatsApp_Image_2026-03-12_at_3.09.01_AM_1_lmumah.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264218/WhatsApp_Image_2026-03-12_at_3.09.01_AM_ng8act.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264218/WhatsApp_Image_2026-03-12_at_3.09.00_AM_fgfsne.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264218/WhatsApp_Image_2026-03-12_at_3.08.45_AM_1_zufbqv.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264217/WhatsApp_Image_2026-03-12_at_3.08.59_AM_1_sj3qu9.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264217/WhatsApp_Image_2026-03-12_at_3.08.44_AM_1_khko5f.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264216/WhatsApp_Image_2026-03-12_at_3.08.58_AM_1_hendvh.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264217/WhatsApp_Image_2026-03-12_at_3.08.43_AM_opfrt2.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264217/WhatsApp_Image_2026-03-12_at_3.08.42_AM_lheddp.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264216/WhatsApp_Image_2026-03-12_at_3.08.41_AM_bha6gf.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264216/WhatsApp_Image_2026-03-12_at_3.08.57_AM_amidr0.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264216/WhatsApp_Image_2026-03-12_at_3.08.58_AM_hxnleb.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264216/WhatsApp_Image_2026-03-12_at_3.08.56_AM_dhrkrx.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264216/WhatsApp_Image_2026-03-12_at_3.08.40_AM_wg647r.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264215/WhatsApp_Image_2026-03-12_at_3.08.55_AM_fbjggq.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264215/WhatsApp_Image_2026-03-12_at_3.08.38_AM_boeqwd.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264215/WhatsApp_Image_2026-03-12_at_3.08.39_AM_azrdbj.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264215/WhatsApp_Image_2026-03-12_at_3.08.55_AM_2_eszvax.jpg',
+  'https://res.cloudinary.com/dnzjg9lq8/image/upload/v1773264215/WhatsApp_Image_2026-03-12_at_3.08.39_AM_1_e8dmh4.jpg',
+];
+
 // ─── Terminal Commands ────────────────────────────
 export const TERMINAL_COMMANDS = {
   help: {
     output: [
-      '┌─────────────────────────────────────────────┐',
-      '│  LoveOS v2.0 — Available Commands           │',
-      '├─────────────────────────────────────────────┤',
-      '│  help            Show this help menu         │',
-      '│  whoami          Who are you to me?          │',
-      '│  git log         View our commit history     │',
-      '│  show memories   List our memory vault       │',
-      '│  open first-meet Our origin story            │',
-      '│  open love-letter  Decrypt private message   │',
-      '│  run future.sh   Execute future plans        │',
-      '│  deploy hugs     Deploy some hugs 🤗         │',
-      '│  about-us        About this relationship     │',
-      '│  date --anniversary  Anniversary info        │',
-      '│  clear           Clear terminal              │',
-      '└─────────────────────────────────────────────┘',
+      '┌──────────────────────────────────────────────────┐',
+      '│  LoveOS v2.0 — Available Commands                │',
+      '├──────────────────────────────────────────────────┤',
+      '│  help              Show this help menu            │',
+      '│  whoami            Who are you to me?             │',
+      '│  git log           View our commit history        │',
+      '│  memories          Open our photo gallery         │',
+      '│  open first-meet   Our origin story               │',
+      '│  open love-letter  Decrypt private message        │',
+      '│  run future.sh     Execute future plans           │',
+      '│  deploy hugs       Deploy some hugs 🤗            │',
+      '│  about-us          About this relationship        │',
+      '│  date --anniversary  Anniversary info             │',
+      '│  status            System & love stats            │',
+      '│  clear             Clear terminal                 │',
+      '└──────────────────────────────────────────────────┘',
     ],
   },
   whoami: {
@@ -55,33 +109,16 @@ export const TERMINAL_COMMANDS = {
     ],
   },
   'git log': {
-    output: [
-      '> Loading commit history...',
-      '',
-      '📂 Redirecting to Commit Timeline section...',
-    ],
-    action: 'openTimeline',
+    output: ['> Loading commit history...'],
+    component: 'GitHubCommitLog',
+  },
+  memories: {
+    output: ['> Accessing Memory Vault...'],
+    component: 'MemoryCarousel',
   },
   'show memories': {
-    output: [
-      '> Accessing Memory Vault...',
-      '',
-      '📁 Firsts/',
-      '   ├── first-conversation.mem',
-      '   ├── first-date.mem',
-      '   ├── first-laugh.mem',
-      '   └── first-i-love-you.mem',
-      '📁 Tiny Beautiful Things/',
-      '   ├── morning-texts.mem',
-      '   ├── inside-jokes.mem',
-      '   └── comfortable-silence.mem',
-      '📁 Funniest Moments/',
-      '   ├── that-autocorrect.mem',
-      '   └── cooking-disaster.mem',
-      '',
-      '📂 Redirecting to Memory Vault...',
-    ],
-    action: 'openMemories',
+    output: ['> Accessing Memory Vault...'],
+    component: 'MemoryCarousel',
   },
   'open first-meet': {
     output: [
@@ -118,7 +155,6 @@ export const TERMINAL_COMMANDS = {
       '# future.sh — Our roadmap',
       '',
       'echo "Loading future plans..."',
-      'sleep 1',
       '',
       '→ More adventures together.............. [PLANNED]',
       '→ More spontaneous road trips........... [PLANNED]',
@@ -179,6 +215,10 @@ export const TERMINAL_COMMANDS = {
       `Happy Anniversary, ${HER_NAME}! 🎉`,
       'Here\'s to many more commits together.',
     ],
+  },
+  status: {
+    output: ['> Fetching system status...'],
+    component: 'StatusDisplay',
   },
 };
 
@@ -282,172 +322,6 @@ export const COMMIT_HISTORY = [
   },
 ];
 
-// ─── Memory Vault ─────────────────────────────────
-export const MEMORY_CATEGORIES = [
-  {
-    name: 'Firsts',
-    emoji: '✨',
-    memories: [
-      {
-        title: 'First Conversation',
-        description: 'The day our threads first connected. A simple hello that started an infinite loop of happiness.',
-        date: '2024-03-11',
-        emoji: '💬',
-      },
-      {
-        title: 'First Date',
-        description: 'Nervous smiles, butterflies in the stomach, and the realization that this could be something extraordinary.',
-        date: '2024-03-25',
-        emoji: '🌟',
-      },
-      {
-        title: 'First "I Love You"',
-        description: 'Three words, zero hesitation. The most confident push I\'ve ever made.',
-        date: '2024-09-01',
-        emoji: '❤️',
-      },
-      {
-        title: 'First Trip Together',
-        description: 'New places, new memories, same wonderful person by my side. Adventure mode: activated.',
-        date: '2025-02-14',
-        emoji: '✈️',
-      },
-    ],
-  },
-  {
-    name: 'Tiny Beautiful Things',
-    emoji: '🌸',
-    memories: [
-      {
-        title: 'Morning Texts',
-        description: 'Waking up to your messages is my favorite daily deployment.',
-        date: 'Ongoing',
-        emoji: '☀️',
-      },
-      {
-        title: 'Inside Jokes',
-        description: 'The things only we understand. Our own private API that nobody else can call.',
-        date: 'Ongoing',
-        emoji: '😂',
-      },
-      {
-        title: 'Comfortable Silence',
-        description: 'Not every moment needs words. Sometimes being together in silence is the most beautiful connection.',
-        date: 'Ongoing',
-        emoji: '🤍',
-      },
-      {
-        title: 'Late Night Calls',
-        description: 'When the world goes quiet but we keep talking. Our own little async process that runs past midnight.',
-        date: 'Ongoing',
-        emoji: '🌙',
-      },
-    ],
-  },
-  {
-    name: 'Funniest Moments',
-    emoji: '😄',
-    memories: [
-      {
-        title: 'The Autocorrect Incident',
-        description: 'That text message autocorrect that made us both laugh for an entire day. Saved permanently in our bug tracker.',
-        date: '2024-06-10',
-        emoji: '📱',
-      },
-      {
-        title: 'The Cooking Experiment',
-        description: 'We tried. We really tried. The smoke alarm disagreed. But we laughed until we cried.',
-        date: '2024-08-22',
-        emoji: '🍳',
-      },
-    ],
-  },
-  {
-    name: 'Challenges We Survived',
-    emoji: '💪',
-    memories: [
-      {
-        title: 'The Distance Phase',
-        description: 'Miles apart but never disconnected. We proved that our connection has zero latency, no matter the distance.',
-        date: '2024-11',
-        emoji: '🌍',
-      },
-      {
-        title: 'The Tough Conversation',
-        description: 'Hard words, soft hearts. We chose understanding over ego, and came out stronger.',
-        date: '2024-07',
-        emoji: '🤝',
-      },
-    ],
-  },
-  {
-    name: 'Favorite Days',
-    emoji: '⭐',
-    memories: [
-      {
-        title: 'The Day Everything Clicked',
-        description: 'That one perfect day where everything felt exactly right. Like the universe passed all its tests.',
-        date: '2024-10-15',
-        emoji: '🌈',
-      },
-      {
-        title: 'Our First Anniversary',
-        description: 'One year milestone. We looked at each other and said, "We really did this." Version 1.0: stable.',
-        date: '2025-03-11',
-        emoji: '🎂',
-      },
-    ],
-  },
-];
-
-// ─── Future Roadmap ───────────────────────────────
-export const ROADMAP_ITEMS = [
-  {
-    version: 'v2.1',
-    title: 'More Date Nights',
-    status: 'in-progress',
-    description: 'Increasing the frequency of quality date instances. Priority: Critical.',
-  },
-  {
-    version: 'v2.2',
-    title: 'More Laughter',
-    status: 'in-progress',
-    description: 'Optimizing the humor pipeline. Goal: at least 10 genuine laughs per day.',
-  },
-  {
-    version: 'v2.5',
-    title: 'Adventure Expansion Pack',
-    status: 'planned',
-    description: 'New destinations, spontaneous trips, and exploring the world side by side.',
-  },
-  {
-    version: 'v3.0',
-    title: 'Travel Upgrade',
-    status: 'planned',
-    description: 'Major release: international adventures. Passport stamps as merge badges.',
-  },
-  {
-    version: 'v4.0',
-    title: 'Dream Home Beta',
-    status: 'planned',
-    description: 'A cozy place to call our own. Interior design as pair programming.',
-  },
-  {
-    version: 'LTS',
-    title: 'Forever Mode',
-    status: 'always',
-    description: 'Long-Term Support release. No end-of-life date. Infinite maintenance and love.',
-  },
-];
-
-export const ROADMAP_CHECKLIST = [
-  { label: 'Build trust', done: true },
-  { label: 'Ship laughter', done: true },
-  { label: 'Improve communication', done: true },
-  { label: 'Increase adventures', done: false },
-  { label: 'Long-term partnership mode', done: false },
-];
-
 // ─── Love Letter ──────────────────────────────────
 export const LOVE_LETTER = {
   greeting: `Dear ${HER_NAME},`,
@@ -462,22 +336,13 @@ export const LOVE_LETTER = {
   signature: 'Your Developer ❤',
 };
 
-// ─── Quick Commands for Mobile Terminal ───────────
+// ─── Quick Commands for Terminal ──────────────────
 export const QUICK_COMMANDS = [
   'help',
   'whoami',
   'git log',
-  'show memories',
+  'memories',
   'deploy hugs',
   'open love-letter',
+  'status',
 ];
-
-// ─── Section Labels ───────────────────────────────
-export const SECTIONS = {
-  terminal: { title: 'Terminal', icon: '⌨️', description: 'Talk to LoveOS' },
-  timeline: { title: 'Commit Timeline', icon: '📜', description: 'Our git history' },
-  memories: { title: 'Memory Vault', icon: '💾', description: 'Core memory files' },
-  roadmap: { title: 'Future Roadmap', icon: '🗺️', description: 'What\'s coming next' },
-  letter: { title: 'Hidden Letter', icon: '💌', description: 'Encrypted message' },
-  stats: { title: 'Anniversary Stats', icon: '📊', description: 'Our numbers' },
-};
