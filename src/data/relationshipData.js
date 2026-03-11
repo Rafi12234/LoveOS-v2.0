@@ -399,3 +399,51 @@ export const MEMORY_CATEGORIES = [
     ],
   },
 ];
+
+// ─── Future Roadmap ───────────────────────────────
+export const ROADMAP_ITEMS = [
+  {
+    version: 'v2.1',
+    title: 'More Date Nights',
+    status: 'in-progress',
+    description: 'Increasing the frequency of quality date instances. Priority: Critical.',
+  },
+  {
+    version: 'v2.2',
+    title: 'More Laughter',
+    status: 'in-progress',
+    description: 'Optimizing the humor pipeline. Goal: at least 10 genuine laughs per day.',
+  },
+  {
+    version: 'v2.5',
+    title: 'Adventure Expansion Pack',
+    status: 'planned',
+    description: 'New destinations, spontaneous trips, and exploring the world side by side.',
+  },
+  {
+    version: 'v3.0',
+    title: 'Travel Upgrade',
+    status: 'planned',
+    description: 'Major release: international adventures. Passport stamps as merge badges.',
+  },
+  {
+    version: 'v4.0',
+    title: 'Dream Home Beta',
+    status: 'planned',
+    description: 'A cozy place to call our own. Interior design as pair programming.',
+  },
+  {
+    version: 'LTS',
+    title: 'Forever Mode',
+    status: 'always',
+    description: 'Long-Term Support release. No end-of-life date. Infinite maintenance and love.',
+  },
+];
+
+export const ROADMAP_CHECKLIST = [
+  { label: 'Build trust', done: true },
+  { label: 'Ship laughter', done: true },
+  { label: 'Improve communication', done: true },
+  { label: 'Increase adventures', done: false },
+  { label: 'Long-term partnership mode', done: false },
+];
