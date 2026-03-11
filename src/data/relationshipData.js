@@ -244,4 +244,16 @@ export const COMMIT_HISTORY = [
       note: 'No revert. No rollback. Forever merged.',
     },
   },
+  {
+    hash: 'b6c7d8e',
+    author: 'us',
+    date: '2024-12-31',
+    message: 'release: stable relationship build v1.0',
+    tag: 'v1.0',
+    detail: {
+      title: 'Version 1.0 — Stable Release',
+      description: 'After months of development, testing, laughing, and loving — our relationship hit its first stable release.',
+      note: 'Production ready. Zero critical issues. All hearts passing.',
+    },
+  },
 ];
