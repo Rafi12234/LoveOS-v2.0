@@ -344,4 +344,22 @@ export const MEMORY_CATEGORIES = [
       },
     ],
   },
+  {
+    name: 'Funniest Moments',
+    emoji: '😄',
+    memories: [
+      {
+        title: 'The Autocorrect Incident',
+        description: 'That text message autocorrect that made us both laugh for an entire day. Saved permanently in our bug tracker.',
+        date: '2024-06-10',
+        emoji: '📱',
+      },
+      {
+        title: 'The Cooking Experiment',
+        description: 'We tried. We really tried. The smoke alarm disagreed. But we laughed until we cried.',
+        date: '2024-08-22',
+        emoji: '🍳',
+      },
+    ],
+  },
 ];
