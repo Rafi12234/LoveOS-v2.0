@@ -78,7 +78,7 @@ export default function Dashboard() {
 
         {/* Section cards grid — shown when on dashboard */}
         <AnimatePresence mode="wait">
-          {activeSection === 'dashboard' && (
+          {activeSection === 'dashboard' ? (
             <motion.div
               key="grid"
               initial={{ opacity: 0 }}
@@ -99,9 +99,7 @@ export default function Dashboard() {
                 ))}
               </div>
             </motion.div>
-          )}
-
-          {activeSection !== 'dashboard' && (
+          ) : (
             <motion.div
               key="section"
               ref={sectionRef}
