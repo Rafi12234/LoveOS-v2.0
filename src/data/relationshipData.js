@@ -314,4 +314,34 @@ export const MEMORY_CATEGORIES = [
       },
     ],
   },
+  {
+    name: 'Tiny Beautiful Things',
+    emoji: '🌸',
+    memories: [
+      {
+        title: 'Morning Texts',
+        description: 'Waking up to your messages is my favorite daily deployment.',
+        date: 'Ongoing',
+        emoji: '☀️',
+      },
+      {
+        title: 'Inside Jokes',
+        description: 'The things only we understand. Our own private API that nobody else can call.',
+        date: 'Ongoing',
+        emoji: '😂',
+      },
+      {
+        title: 'Comfortable Silence',
+        description: 'Not every moment needs words. Sometimes being together in silence is the most beautiful connection.',
+        date: 'Ongoing',
+        emoji: '🤍',
+      },
+      {
+        title: 'Late Night Calls',
+        description: 'When the world goes quiet but we keep talking. Our own little async process that runs past midnight.',
+        date: 'Ongoing',
+        emoji: '🌙',
+      },
+    ],
+  },
 ];
