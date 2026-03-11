@@ -11,6 +11,16 @@ export default function BootScreen({ onComplete }) {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.8 }}
     >
+      {/* Scanline overlay */}
+      <div className="scanline-overlay" />
+
+      {/* Subtle glow behind text */}
+      <div className="absolute w-[500px] h-[500px] rounded-full opacity-20"
+        style={{
+          background: 'radial-gradient(circle, rgba(0, 240, 255, 0.3), transparent 70%)',
+          filter: 'blur(80px)',
+        }}
+      />
     </motion.div>
   );
 }
