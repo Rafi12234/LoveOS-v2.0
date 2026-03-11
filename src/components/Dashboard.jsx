@@ -127,6 +127,15 @@ export default function Dashboard() {
                 {SECTIONS[activeSection]?.icon}{' '}
                 {SECTIONS[activeSection]?.title || activeSection}
               </h2>
+
+              {/* Active section content */}
+              {activeSection === 'terminal' && (
+                <TerminalPanel onAction={handleTerminalAction} />
+              )}
+              {activeSection === 'timeline' && <CommitTimeline />}
+              {activeSection === 'memories' && <MemoryGallery />}
+              {activeSection === 'roadmap' && <RoadmapPanel />}
+              {activeSection === 'stats' && <CountdownCard />}
             </motion.div>
           )}
         </AnimatePresence>
