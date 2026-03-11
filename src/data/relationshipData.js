@@ -103,4 +103,13 @@ export const TERMINAL_COMMANDS = {
       '└────────────────────────────────────────────┘',
     ],
   },
+  'open love-letter': {
+    output: [
+      '> Decrypting private message...',
+      '> Authorization: ❤ granted',
+      '',
+      '📩 Opening love letter...',
+    ],
+    action: 'openLoveLetter',
+  },
 };
