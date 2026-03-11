@@ -10,6 +10,17 @@ const BLOBS = [
 ];
 
 export default function BackgroundEffects() {
+  const stars = useMemo(() => {
+    return Array.from({ length: 50 }, (_, i) => ({
+      id: i,
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      size: Math.random() * 2 + 1,
+      delay: Math.random() * 5,
+      duration: Math.random() * 3 + 2,
+    }));
+  }, []);
+
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 0 }}>
       {/* Gradient blobs */}
@@ -35,6 +46,27 @@ export default function BackgroundEffects() {
             duration: 12,
             repeat: Infinity,
             delay: blob.delay,
+            ease: 'easeInOut',
+          }}
+        />
+      ))}
+
+      {/* Star particles */}
+      {stars.map((star) => (
+        <motion.div
+          key={`star-${star.id}`}
+          className="absolute rounded-full bg-white/40"
+          style={{
+            width: star.size,
+            height: star.size,
+            left: star.left,
+            top: star.top,
+          }}
+          animate={{ opacity: [0, 1, 0] }}
+          transition={{
+            duration: star.duration,
+            repeat: Infinity,
+            delay: star.delay,
             ease: 'easeInOut',
           }}
         />
