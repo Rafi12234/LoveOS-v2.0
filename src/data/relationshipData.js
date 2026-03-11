@@ -54,4 +54,33 @@ export const TERMINAL_COMMANDS = {
       'Status: irreplaceable',
     ],
   },
+  'git log': {
+    output: [
+      '> Loading commit history...',
+      '',
+      '📂 Redirecting to Commit Timeline section...',
+    ],
+    action: 'openTimeline',
+  },
+  'show memories': {
+    output: [
+      '> Accessing Memory Vault...',
+      '',
+      '📁 Firsts/',
+      '   ├── first-conversation.mem',
+      '   ├── first-date.mem',
+      '   ├── first-laugh.mem',
+      '   └── first-i-love-you.mem',
+      '📁 Tiny Beautiful Things/',
+      '   ├── morning-texts.mem',
+      '   ├── inside-jokes.mem',
+      '   └── comfortable-silence.mem',
+      '📁 Funniest Moments/',
+      '   ├── that-autocorrect.mem',
+      '   └── cooking-disaster.mem',
+      '',
+      '📂 Redirecting to Memory Vault...',
+    ],
+    action: 'openMemories',
+  },
 };
