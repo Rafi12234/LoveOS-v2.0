@@ -52,6 +52,39 @@ export default function LoveLetterModal({ isOpen, onClose, onReveal }) {
               boxShadow: '0 0 60px rgba(168, 85, 247, 0.15), 0 0 120px rgba(244, 114, 182, 0.08)',
             }}
           >
+            {/* Soft glow behind */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 rounded-full opacity-30 pointer-events-none"
+              style={{
+                background: 'radial-gradient(circle, rgba(244, 114, 182, 0.3), transparent 70%)',
+                filter: 'blur(50px)',
+              }}
+            />
+
+            <AnimatePresence mode="wait">
+              {decrypting ? (
+                <motion.div
+                  key="decrypt"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="text-center py-16"
+                >
+                  <div className="inline-block mb-6">
+                    <motion.div
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
+                      className="w-10 h-10 rounded-full border-2 border-love-pink/40 border-t-love-pink"
+                    />
+                  </div>
+                  <p className="terminal-text text-sm text-love-pink animate-pulse">
+                    Decrypting private message...
+                  </p>
+                  <p className="terminal-text text-xs text-slate-500 mt-2">
+                    Authorization: ❤ granted
+                  </p>
+                </motion.div>
+              ) : null}
+            </AnimatePresence>
           </motion.div>
         </motion.div>
       )}
