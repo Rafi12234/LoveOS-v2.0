@@ -220,4 +220,16 @@ export const COMMIT_HISTORY = [
       note: 'Best dependency I ever added to my life.',
     },
   },
+  {
+    hash: 'f0a1b2c',
+    author: 'patience',
+    date: '2024-07-20',
+    message: 'fix: resolved misunderstanding bug together',
+    tag: 'hotfix',
+    detail: {
+      title: 'The Bug We Squashed',
+      description: 'Every great codebase has bugs. What matters is that we debugged it together, patiently, with love.',
+      note: 'We passed the test. All assertions green.',
+    },
+  },
 ];
