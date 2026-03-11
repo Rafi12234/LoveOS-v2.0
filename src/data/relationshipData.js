@@ -4,9 +4,9 @@
 // ═══════════════════════════════════════════════════
 
 // ─── Core Info ────────────────────────────────────
-export const HER_NAME = 'My Love';
-export const ANNIVERSARY_DATE = '2024-03-11'; // YYYY-MM-DD format
-export const RELATIONSHIP_START = '2024-03-11';
+export const HER_NAME = 'Samanta Islam';
+export const ANNIVERSARY_DATE = '2026-03-14'; // YYYY-MM-DD format
+export const RELATIONSHIP_START = '2024-03-14';
 
 // ─── Boot Sequence ────────────────────────────────
 export const BOOT_MESSAGES = [
@@ -80,9 +80,9 @@ export const MEMORY_IMAGES = [
 export const TERMINAL_COMMANDS = {
   help: {
     output: [
-      '┌──────────────────────────────────────────────────┐',
-      '│  LoveOS v2.0 — Available Commands                │',
-      '├──────────────────────────────────────────────────┤',
+      '┌────────────────────────────────────────────────────────┐',
+      '│  LoveOS v2.0 — Available Commands                 │',
+      '├────────────────────────────────────────────────────────┤',
       '│  help              Show this help menu            │',
       '│  whoami            Who are you to me?             │',
       '│  git log           View our commit history        │',
@@ -95,7 +95,7 @@ export const TERMINAL_COMMANDS = {
       '│  date --anniversary  Anniversary info             │',
       '│  status            System & love stats            │',
       '│  clear             Clear terminal                 │',
-      '└──────────────────────────────────────────────────┘',
+      '└────────────────────────────────────────────────────────┘',
     ],
   },
   whoami: {
@@ -124,18 +124,18 @@ export const TERMINAL_COMMANDS = {
     output: [
       '> Loading origin story...',
       '',
-      '┌── first-meet.log ─────────────────────────┐',
+      '┌── first-meet.log ──────────────────────────┐',
       '│                                            │',
       '│  It was just another ordinary day,         │',
-      '│  until you showed up and rewrote            │',
-      '│  every line of my source code.              │',
+      '│  until you showed up and rewrote           │',
+      '│  every line of my source code.             │',
       '│                                            │',
-      '│  I didn\'t know it then, but that was       │',
-      '│  the moment my life\'s main branch          │',
-      '│  got its best feature ever merged.          │',
+      '│  I didn\'t know it then, but that was      │',
+      '│  the moment my life\'s main branch         │',
+      '│  got its best feature ever merged.         │',
       '│                                            │',
-      '│  And I\'d choose that same commit            │',
-      '│  every single time.                         │',
+      '│  And I\'d choose that same commit          │',
+      '│  every single time.                        │',
       '│                                            │',
       '└────────────────────────────────────────────┘',
     ],
@@ -172,10 +172,10 @@ export const TERMINAL_COMMANDS = {
       '> Deploying hugs to production...',
       '',
       '  ╔══════════════════════════════════╗',
-      '  ║                                  ║',
-      '  ║    🤗  HUGS DEPLOYED! 🤗         ║',
-      '  ║                                  ║',
-      '  ║    ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥        ║',
+      '  ║                               ║',
+      '  ║    🤗  HUGS DEPLOYED! 🤗      ║',
+      '  ║                               ║',
+      '  ║    ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥           ║',
       '  ║    Status: Warm & Fuzzy          ║',
       '  ║    Coverage: 100%                ║',
       '  ║    Uptime: Forever               ║',
@@ -227,7 +227,7 @@ export const COMMIT_HISTORY = [
   {
     hash: 'a1b2c3d',
     author: 'destiny',
-    date: '2024-03-11',
+    date: '2024-03-14',
     message: 'init: first conversation initialized',
     tag: null,
     detail: {
@@ -312,11 +312,11 @@ export const COMMIT_HISTORY = [
     hash: 'e3f4a5b',
     author: 'forever',
     date: '2026-03-11',
-    message: 'release: anniversary v2.0 — two years of love',
+    message: 'release: anniversary v2.0 — our love milestone',
     tag: 'v2.0',
     detail: {
       title: 'Happy Anniversary v2.0',
-      description: 'Two years. 730 days. Countless moments that made this the greatest project either of us has ever worked on.',
+      description: 'Every moment with you made this the greatest project I have ever worked on.',
       note: 'Here\'s to infinite more versions. I love you.',
     },
   },
