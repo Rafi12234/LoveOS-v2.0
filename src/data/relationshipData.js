@@ -14,11 +14,14 @@ export const BOOT_MESSAGES = [
   'Loading core memories...',
   'Syncing happiness modules...',
   'Compiling love.js — no errors found ❤',
+  'Heart to Heart connection established Successfully - No latency detected...',
+  'Accessing love vault... Access granted.',
+  'Decrypting feelings... Decryption successful.',
   'Checking compatibility... ',
   'Status: Perfect Match Found ✓',
   'Boot successful.',
   '',
-  `Welcome back, ${HER_NAME}.`,
+  `Welcome back, ${HER_NAME}, My Love.`,
 ];
 
 // ─── Memory Images (Cloudinary) ───────────────────
