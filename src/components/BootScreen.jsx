@@ -76,6 +76,18 @@ export default function BootScreen({ onComplete }) {
           </motion.button>
         )}
       </AnimatePresence>
+
+      {/* Skip hint */}
+      {!isComplete && (
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.3 }}
+          transition={{ delay: 2 }}
+          className="absolute bottom-8 text-xs text-slate-500"
+        >
+          Loading your universe...
+        </motion.p>
+      )}
     </motion.div>
   );
 }
