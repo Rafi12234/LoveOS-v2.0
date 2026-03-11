@@ -70,6 +70,11 @@ export default function Dashboard() {
             {DEDICATION}
           </p>
         </motion.div>
+
+        {/* Countdown */}
+        <div className="mb-10">
+          <CountdownCard />
+        </div>
       </main>
     </div>
   );
