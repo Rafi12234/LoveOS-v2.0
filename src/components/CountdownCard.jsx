@@ -45,3 +45,41 @@ function FutureCountdown({ time }) {
     </div>
   );
 }
+
+function PastStats({ time }) {
+  const stats = [
+    { value: `${time.years}`, label: 'years of love' },
+    { value: formatNumber(time.totalDays), label: 'days' },
+    { value: formatNumber(time.totalHours), label: 'hours' },
+    { value: formatNumber(time.totalMinutes), label: 'minutes' },
+  ];
+
+  return (
+    <div className="text-center">
+      <p className="text-love-pink text-sm font-medium terminal-text mb-1">
+        Anniversary v2.0 — Launched
+      </p>
+      <p className="text-slate-400 text-xs mb-6">Time since our story began</p>
+
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {stats.map(stat => (
+          <div key={stat.label} className="text-center">
+            <div className="text-2xl md:text-3xl font-bold gradient-text terminal-text">
+              {stat.value}
+            </div>
+            <div className="text-xs text-slate-500 mt-1">{stat.label}</div>
+          </div>
+        ))}
+      </div>
+
+      <motion.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.5 }}
+        className="mt-6 text-slate-300 text-sm italic"
+      >
+        ...and countless reasons to love you
+      </motion.p>
+    </div>
+  );
+}
