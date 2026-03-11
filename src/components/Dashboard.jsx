@@ -75,6 +75,32 @@ export default function Dashboard() {
         <div className="mb-10">
           <CountdownCard />
         </div>
+
+        {/* Section cards grid — shown when on dashboard */}
+        <AnimatePresence mode="wait">
+          {activeSection === 'dashboard' && (
+            <motion.div
+              key="grid"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+                {Object.entries(SECTIONS).map(([key, val], i) => (
+                  <SectionCard
+                    key={key}
+                    icon={val.icon}
+                    title={val.title}
+                    description={val.description}
+                    onClick={() => navigateTo(key)}
+                    delay={0.1 + i * 0.07}
+                  />
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </main>
     </div>
   );
