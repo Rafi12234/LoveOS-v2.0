@@ -52,5 +52,28 @@ export default function TerminalPanel({ onAction }) {
     setHistoryIdx(-1);
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      executeCommand(input);
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (cmdHistory.length > 0) {
+        const newIdx = Math.min(historyIdx + 1, cmdHistory.length - 1);
+        setHistoryIdx(newIdx);
+        setInput(cmdHistory[newIdx]);
+      }
+    } else if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      if (historyIdx > 0) {
+        const newIdx = historyIdx - 1;
+        setHistoryIdx(newIdx);
+        setInput(cmdHistory[newIdx]);
+      } else {
+        setHistoryIdx(-1);
+        setInput('');
+      }
+    }
+  };
+
   return null;
 }
