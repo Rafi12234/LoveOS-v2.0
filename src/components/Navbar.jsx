@@ -34,6 +34,23 @@ export default function Navbar({ activeSection, onNavigate }) {
             System Stable
           </span>
         </div>
+
+        {/* Desktop nav */}
+        <div className="hidden md:flex items-center gap-1">
+          {NAV_ITEMS.map(item => (
+            <button
+              key={item.id}
+              onClick={() => handleNav(item.id)}
+              className={`px-3 py-1.5 rounded-lg text-sm transition-all duration-200 ${
+                activeSection === item.id
+                  ? 'text-love-cyan bg-love-cyan/10'
+                  : 'text-slate-400 hover:text-white hover:bg-white/5'
+              }`}
+            >
+              {item.label}
+            </button>
+          ))}
+        </div>
       </div>
     </motion.nav>
   );
