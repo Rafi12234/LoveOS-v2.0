@@ -31,6 +31,42 @@ export default function MemoryGallery() {
           </button>
         ))}
       </div>
+
+      {/* Memory cards */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={activeCategory}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.3 }}
+          className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+        >
+          {category?.memories.map((memory, i) => (
+            <motion.button
+              key={memory.title}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.08 }}
+              whileHover={{ scale: 1.02, y: -2 }}
+              onClick={() => setSelectedMemory(memory)}
+              className="glass-card glass-card-hover p-5 rounded-xl text-left
+                         transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-love-violet/30"
+            >
+              <div className="flex items-start gap-3">
+                <span className="text-2xl">{memory.emoji}</span>
+                <div className="flex-1 min-w-0">
+                  <h4 className="text-white font-semibold text-sm mb-1">{memory.title}</h4>
+                  <p className="text-slate-400 text-xs leading-relaxed line-clamp-2">
+                    {memory.description}
+                  </p>
+                  <p className="text-[10px] text-slate-500 mt-2 terminal-text">{memory.date}</p>
+                </div>
+              </div>
+            </motion.button>
+          ))}
+        </motion.div>
+      </AnimatePresence>
     </motion.div>
   );
 }
