@@ -52,6 +52,40 @@ export default function RoadmapPanel() {
           );
         })}
       </div>
+
+      {/* Progress checklist */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.5 }}
+        className="glass-card p-5 rounded-xl"
+      >
+        <h4 className="text-sm font-semibold text-slate-300 mb-4 terminal-text">
+          {'>'} Relationship Progress
+        </h4>
+        <div className="space-y-3">
+          {ROADMAP_CHECKLIST.map((item, i) => (
+            <div key={i} className="flex items-center gap-3">
+              <div className={`w-5 h-5 rounded-md flex items-center justify-center text-xs
+                ${item.done
+                  ? 'bg-green-500/20 text-green-400 border border-green-500/30'
+                  : 'bg-white/5 text-slate-600 border border-white/10'
+                }`}
+              >
+                {item.done ? '✓' : ''}
+              </div>
+              <span className={`text-sm ${item.done ? 'text-slate-300' : 'text-slate-500'}`}>
+                {item.label}
+              </span>
+              {item.done && (
+                <span className="ml-auto text-[10px] text-green-400/60 terminal-text">
+                  SHIPPED
+                </span>
+              )}
+            </div>
+          ))}
+        </div>
+      </motion.div>
     </motion.div>
   );
 }
