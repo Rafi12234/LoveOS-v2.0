@@ -380,4 +380,22 @@ export const MEMORY_CATEGORIES = [
       },
     ],
   },
+  {
+    name: 'Favorite Days',
+    emoji: '⭐',
+    memories: [
+      {
+        title: 'The Day Everything Clicked',
+        description: 'That one perfect day where everything felt exactly right. Like the universe passed all its tests.',
+        date: '2024-10-15',
+        emoji: '🌈',
+      },
+      {
+        title: 'Our First Anniversary',
+        description: 'One year milestone. We looked at each other and said, "We really did this." Version 1.0: stable.',
+        date: '2025-03-11',
+        emoji: '🎂',
+      },
+    ],
+  },
 ];
