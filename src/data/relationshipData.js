@@ -112,4 +112,23 @@ export const TERMINAL_COMMANDS = {
     ],
     action: 'openLoveLetter',
   },
+  'run future.sh': {
+    output: [
+      '#!/bin/bash',
+      '# future.sh — Our roadmap',
+      '',
+      'echo "Loading future plans..."',
+      'sleep 1',
+      '',
+      '→ More adventures together.............. [PLANNED]',
+      '→ More spontaneous road trips........... [PLANNED]',
+      '→ Build a home full of love............. [PLANNED]',
+      '→ Travel the world together............. [PLANNED]',
+      '→ Grow old, still making each other laugh [PLANNED]',
+      '→ Love you forever...................... [IN PROGRESS]',
+      '',
+      '✓ future.sh executed successfully.',
+      '  Exit code: 0 (no errors in our love)',
+    ],
+  },
 };
