@@ -281,3 +281,37 @@ export const COMMIT_HISTORY = [
     },
   },
 ];
+
+// ─── Memory Vault ─────────────────────────────────
+export const MEMORY_CATEGORIES = [
+  {
+    name: 'Firsts',
+    emoji: '✨',
+    memories: [
+      {
+        title: 'First Conversation',
+        description: 'The day our threads first connected. A simple hello that started an infinite loop of happiness.',
+        date: '2024-03-11',
+        emoji: '💬',
+      },
+      {
+        title: 'First Date',
+        description: 'Nervous smiles, butterflies in the stomach, and the realization that this could be something extraordinary.',
+        date: '2024-03-25',
+        emoji: '🌟',
+      },
+      {
+        title: 'First "I Love You"',
+        description: 'Three words, zero hesitation. The most confident push I\'ve ever made.',
+        date: '2024-09-01',
+        emoji: '❤️',
+      },
+      {
+        title: 'First Trip Together',
+        description: 'New places, new memories, same wonderful person by my side. Adventure mode: activated.',
+        date: '2025-02-14',
+        emoji: '✈️',
+      },
+    ],
+  },
+];
