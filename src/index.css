@@ -58,3 +58,18 @@ body {
 .cursor-blink {
   animation: blink 1s step-end infinite;
 }
+
+/* ─── Scanline effect ──────────────────── */
+.scanline-overlay {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 240, 255, 0.015) 2px,
+    rgba(0, 240, 255, 0.015) 4px
+  );
+  z-index: 1;
+}
