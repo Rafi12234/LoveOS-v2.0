@@ -133,6 +133,21 @@ export default function TerminalPanel({ onAction }) {
         </div>
         <div ref={endRef} />
       </div>
+
+      {/* Quick commands */}
+      <div className="px-4 py-3 border-t border-white/5 flex flex-wrap gap-2">
+        {QUICK_COMMANDS.map(cmd => (
+          <button
+            key={cmd}
+            onClick={() => executeCommand(cmd)}
+            className="px-3 py-1 rounded-lg text-xs terminal-text
+                       bg-white/5 text-slate-400 hover:text-love-cyan
+                       hover:bg-love-cyan/10 transition-colors"
+          >
+            {cmd}
+          </button>
+        ))}
+      </div>
     </motion.div>
   );
 }
