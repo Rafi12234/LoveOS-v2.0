@@ -158,7 +158,9 @@ export default function MemoryCarousel({ onClose }) {
                      flex items-center justify-center text-white/70 hover:text-love-cyan
                      hover:border-love-cyan/30 hover:bg-love-cyan/10 transition-all"
         >
-          ←
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
         </button>
 
         {/* Dot indicators */}
@@ -190,7 +192,9 @@ export default function MemoryCarousel({ onClose }) {
                      flex items-center justify-center text-white/70 hover:text-love-cyan
                      hover:border-love-cyan/30 hover:bg-love-cyan/10 transition-all"
         >
-          →
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
         </button>
       </div>
 
@@ -210,7 +214,7 @@ export default function MemoryCarousel({ onClose }) {
 
       {/* Keyboard hint */}
       <p className="text-slate-600 text-xs mt-4 terminal-text">
-        ← → arrow keys to navigate
+        use arrow keys to navigate
       </p>
     </motion.div>
   );
