@@ -80,17 +80,17 @@ export default function TerminalPanel() {
               `│  Days together: ${time.totalDays.toLocaleString().padEnd(24)}│`,
               `│  Hours of happiness: ${time.totalHours.toLocaleString().padEnd(19)}│`,
               `│  Minutes of love: ${time.totalMinutes.toLocaleString().padEnd(22)}│`,
-              '│  System health: ❤ EXCELLENT              │',
+              '│  System health: <3 EXCELLENT              │',
               '│  Uptime: 100%                             │',
               '└───────────────────────────────────────────┘',
             );
           } else {
             stats.push(
               '',
-              '┌── System Status ─────────────────────────┐',
+              '┌── System Status ───────────────────────────┐',
               `│  Next Anniversary: ${ANNIVERSARY_DATE}           │`,
               `│  Countdown: ${time.days}d ${time.hours}h ${time.minutes}m ${time.seconds}s       │`,
-              '│  System health: ❤ EXCELLENT              │',
+              '│  System health: <3 EXCELLENT              │',
               '│  Uptime: 100%                             │',
               '└───────────────────────────────────────────┘',
             );
