@@ -75,7 +75,6 @@ export default function Dashboard() {
             style={{
               left: `${10 + i * 11}%`,
               top: `${20 + (i % 3) * 25}%`,
-              fontSize: `${14 + (i % 4) * 6}px`,
             }}
             animate={{
               y: [0, -30, 0],
@@ -89,7 +88,9 @@ export default function Dashboard() {
               delay: i * 0.5,
             }}
           >
-            ♥
+            <svg width={14 + (i % 4) * 6} height={14 + (i % 4) * 6} viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            </svg>
           </motion.div>
         ))}
 
@@ -142,9 +143,18 @@ export default function Dashboard() {
             <motion.span
               animate={{ scale: [1, 1.3, 1] }}
               transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}
-              className="inline-block text-2xl"
+              className="inline-block"
             >
-              💖
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                  fill="url(#heartDivider)" />
+                <defs>
+                  <linearGradient id="heartDivider" x1="2" y1="3" x2="22" y2="21">
+                    <stop offset="0%" stopColor="#f472b6" />
+                    <stop offset="100%" stopColor="#a855f7" />
+                  </linearGradient>
+                </defs>
+              </svg>
             </motion.span>
           </motion.div>
 
@@ -170,56 +180,120 @@ export default function Dashboard() {
                   }}
                   transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
                 />
+
+                {/* Ring burst effect */}
+                {[...Array(3)].map((_, i) => (
+                  <motion.div
+                    key={`ring-${i}`}
+                    className="absolute inset-0 rounded-2xl pointer-events-none"
+                    style={{ border: '2px solid rgba(244, 114, 182, 0.3)' }}
+                    initial={{ opacity: 0.6, scale: 1 }}
+                    animate={{ opacity: 0, scale: 1.3 + i * 0.15 }}
+                    transition={{
+                      duration: 2.5,
+                      repeat: Infinity,
+                      delay: i * 0.8,
+                      ease: 'easeOut',
+                    }}
+                  />
+                ))}
+
                 <div
-                  className="relative px-8 py-6 rounded-2xl text-center"
+                  className="relative px-8 py-8 rounded-2xl text-center overflow-hidden"
                   style={{
                     background: 'linear-gradient(135deg, rgba(244, 114, 182, 0.08), rgba(168, 85, 247, 0.08), rgba(0, 240, 255, 0.05))',
                     border: '1px solid rgba(244, 114, 182, 0.25)',
                     backdropFilter: 'blur(12px)',
                   }}
                 >
-                  {/* Sparkle particles */}
-                  {[...Array(6)].map((_, i) => (
-                    <motion.span
+                  {/* Shimmer sweep */}
+                  <motion.div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      background: 'linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.05) 45%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.05) 55%, transparent 60%)',
+                    }}
+                    animate={{ x: ['-100%', '200%'] }}
+                    transition={{ duration: 3, repeat: Infinity, repeatDelay: 2, ease: 'easeInOut' }}
+                  />
+
+                  {/* Sparkle particles (SVG stars) */}
+                  {[...Array(8)].map((_, i) => (
+                    <motion.svg
                       key={`sparkle-${i}`}
-                      className="absolute text-yellow-400/70 pointer-events-none"
+                      className="absolute pointer-events-none"
                       style={{
-                        left: `${15 + i * 14}%`,
-                        top: `${10 + (i % 3) * 30}%`,
-                        fontSize: '12px',
+                        left: `${8 + i * 12}%`,
+                        top: `${8 + (i % 4) * 22}%`,
                       }}
+                      width="14" height="14" viewBox="0 0 24 24" fill="none"
                       animate={{
-                        opacity: [0, 1, 0],
-                        scale: [0.5, 1.2, 0.5],
+                        opacity: [0, 0.8, 0],
+                        scale: [0.4, 1, 0.4],
                         rotate: [0, 180, 360],
                       }}
                       transition={{
-                        duration: 2 + i * 0.3,
+                        duration: 2.5 + i * 0.3,
                         repeat: Infinity,
-                        delay: i * 0.4,
+                        delay: i * 0.35,
                       }}
                     >
-                      ✦
-                    </motion.span>
+                      <path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8L12 2z"
+                        fill="rgba(251, 191, 36, 0.7)" />
+                    </motion.svg>
                   ))}
 
+                  {/* Celebration icon — party popper SVG */}
                   <motion.div
-                    initial={{ scale: 0 }}
-                    animate={{ scale: [0, 1.3, 1] }}
+                    initial={{ scale: 0, rotate: -30 }}
+                    animate={{ scale: [0, 1.3, 1], rotate: [-30, 10, 0] }}
                     transition={{ delay: 0.3, duration: 0.8, ease: 'easeOut' }}
-                    className="text-5xl mb-3"
+                    className="mb-4 inline-flex items-center justify-center"
                   >
-                    🎊
+                    <svg width="56" height="56" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      {/* Confetti pieces */}
+                      <motion.circle cx="5" cy="4" r="1" fill="#f472b6"
+                        animate={{ y: [0, 2, 0], opacity: [0.6, 1, 0.6] }}
+                        transition={{ duration: 1.5, repeat: Infinity, delay: 0.2 }} />
+                      <motion.circle cx="19" cy="3" r="0.8" fill="#00f0ff"
+                        animate={{ y: [0, 3, 0], opacity: [0.6, 1, 0.6] }}
+                        transition={{ duration: 1.8, repeat: Infinity, delay: 0.5 }} />
+                      <motion.rect x="15" y="5" width="1.5" height="1.5" rx="0.3" fill="#fbbf24" transform="rotate(30 15 5)"
+                        animate={{ y: [0, 2, 0], opacity: [0.5, 1, 0.5] }}
+                        transition={{ duration: 1.3, repeat: Infinity, delay: 0.8 }} />
+                      <motion.circle cx="9" cy="2" r="0.7" fill="#a855f7"
+                        animate={{ y: [0, 2, 0], opacity: [0.5, 1, 0.5] }}
+                        transition={{ duration: 1.6, repeat: Infinity, delay: 0.3 }} />
+                      {/* Heart center */}
+                      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                        fill="url(#heartGrad)" />
+                      <defs>
+                        <linearGradient id="heartGrad" x1="2" y1="3" x2="22" y2="21">
+                          <stop offset="0%" stopColor="#f472b6" />
+                          <stop offset="50%" stopColor="#a855f7" />
+                          <stop offset="100%" stopColor="#00f0ff" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
                   </motion.div>
 
+                  {/* Title with stagger */}
                   <motion.h2
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5, duration: 0.6 }}
-                    className="text-2xl md:text-3xl font-bold gradient-text mb-2"
+                    className="text-2xl md:text-3xl font-bold gradient-text mb-3"
                   >
                     Happy 2nd Anniversary!
                   </motion.h2>
+
+                  {/* Decorative line */}
+                  <motion.div
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    transition={{ delay: 0.7, duration: 0.6 }}
+                    className="mx-auto mb-4 h-px w-48"
+                    style={{ background: 'linear-gradient(90deg, transparent, rgba(244, 114, 182, 0.5), rgba(168, 85, 247, 0.5), transparent)' }}
+                  />
 
                   <motion.p
                     initial={{ opacity: 0 }}
@@ -228,7 +302,7 @@ export default function Dashboard() {
                     className="text-love-pink text-sm md:text-base terminal-text mb-3"
                     style={{ textShadow: '0 0 15px rgba(244, 114, 182, 0.4)' }}
                   >
-                    Two years of loving you, and I'd do every second all over again.
+                    Two years of loving you, and I&apos;d do every second all over again.
                   </motion.p>
 
                   <motion.p
@@ -237,29 +311,51 @@ export default function Dashboard() {
                     transition={{ delay: 1.1, duration: 0.6 }}
                     className="text-slate-400 text-xs md:text-sm leading-relaxed max-w-lg mx-auto"
                   >
-                    From our first "I love you" to this very moment — every laugh, every fight
+                    From our first &ldquo;I love you&rdquo; to this very moment — every laugh, every fight
                     we fixed together, every late night call, every hug that made the world disappear —
                     you are the most beautiful thing that ever happened to my life.
                     <br /><br />
                     <span className="text-love-violet font-medium">Here&apos;s to forever, {HER_NAME}.</span>
                   </motion.p>
 
+                  {/* Icon row replacing emojis */}
                   <motion.div
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 1.5, type: 'spring', stiffness: 200 }}
-                    className="mt-4 flex items-center justify-center gap-2"
+                    className="mt-5 flex items-center justify-center gap-4"
                   >
-                    {['💕', '🥂', '✨', '💖', '🌹'].map((emoji, i) => (
-                      <motion.span
-                        key={i}
-                        animate={{ y: [0, -8, 0] }}
-                        transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.2, ease: 'easeInOut' }}
-                        className="text-lg"
-                      >
-                        {emoji}
-                      </motion.span>
-                    ))}
+                    {/* Heart icon */}
+                    <motion.svg animate={{ y: [0, -6, 0] }} transition={{ duration: 1.8, repeat: Infinity, delay: 0, ease: 'easeInOut' }}
+                      width="22" height="22" viewBox="0 0 24 24" fill="none">
+                      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                        fill="#f472b6" />
+                    </motion.svg>
+                    {/* Star icon */}
+                    <motion.svg animate={{ y: [0, -6, 0] }} transition={{ duration: 1.8, repeat: Infinity, delay: 0.2, ease: 'easeInOut' }}
+                      width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 16.4 5.7 21l2.3-7L2 9.4h7.6L12 2z"
+                        fill="#fbbf24" />
+                    </motion.svg>
+                    {/* Infinity icon */}
+                    <motion.svg animate={{ y: [0, -6, 0] }} transition={{ duration: 1.8, repeat: Infinity, delay: 0.4, ease: 'easeInOut' }}
+                      width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a855f7" strokeWidth="2" strokeLinecap="round">
+                      <path d="M12 12c-2-2.67-4-4-6-4a4 4 0 1 0 0 8c2 0 4-1.33 6-4zm0 0c2 2.67 4 4 6 4a4 4 0 0 0 0-8c-2 0-4 1.33-6 4z" />
+                    </motion.svg>
+                    {/* Sparkle icon */}
+                    <motion.svg animate={{ y: [0, -6, 0] }} transition={{ duration: 1.8, repeat: Infinity, delay: 0.6, ease: 'easeInOut' }}
+                      width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8L12 2z"
+                        fill="#00f0ff" />
+                    </motion.svg>
+                    {/* Rose/flower icon */}
+                    <motion.svg animate={{ y: [0, -6, 0] }} transition={{ duration: 1.8, repeat: Infinity, delay: 0.8, ease: 'easeInOut' }}
+                      width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f472b6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M12 21c-4-4-8-6.5-8-10.5a5 5 0 0 1 8-4 5 5 0 0 1 8 4c0 4-4 6.5-8 10.5z" fill="rgba(244, 114, 182, 0.15)" />
+                      <path d="M12 3v10" stroke="#4ade80" strokeWidth="1.5" />
+                      <path d="M9 7c-2-1-3 0-3 2" stroke="#4ade80" strokeWidth="1.2" />
+                      <path d="M15 7c2-1 3 0 3 2" stroke="#4ade80" strokeWidth="1.2" />
+                    </motion.svg>
                   </motion.div>
 
                   <motion.button
@@ -267,9 +363,14 @@ export default function Dashboard() {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 2 }}
                     onClick={() => setShowSurprise(false)}
-                    className="mt-4 text-[10px] terminal-text text-slate-500 hover:text-love-cyan transition-colors"
+                    className="mt-5 inline-flex items-center gap-2 px-4 py-1.5 rounded-lg text-xs terminal-text
+                               text-slate-400 hover:text-love-cyan border border-white/10
+                               hover:border-love-cyan/30 hover:bg-love-cyan/5 transition-all"
                   >
-                    ▸ continue to LoveOS
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                    continue to LoveOS
                   </motion.button>
                 </div>
               </motion.div>
@@ -316,9 +417,11 @@ export default function Dashboard() {
               <motion.span
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
-                className="text-sm"
+                className="text-sm inline-flex"
               >
-                🎉
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 16.4 5.7 21l2.3-7L2 9.4h7.6L12 2z" fill="#fbbf24" />
+                </svg>
               </motion.span>
               <span className="text-xs terminal-text text-slate-400">
                 Anniversary in{' '}
@@ -341,13 +444,19 @@ export default function Dashboard() {
               <motion.span
                 animate={{ rotate: [0, 10, -10, 0] }}
                 transition={{ duration: 2, repeat: Infinity }}
-                className="text-sm"
+                className="text-sm inline-flex"
               >
-                🎉
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7L12 16.4 5.7 21l2.3-7L2 9.4h7.6L12 2z" fill="#fbbf24" />
+                </svg>
               </motion.span>
               <span className="text-xs terminal-text text-love-pink font-bold">
-                It&apos;s our 2nd Anniversary! 💕
+                It&apos;s our 2nd Anniversary!
               </span>
+              <motion.svg animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 1.5, repeat: Infinity }}
+                width="14" height="14" viewBox="0 0 24 24" fill="#f472b6">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </motion.svg>
             </motion.div>
           ) : null}
 
@@ -362,7 +471,12 @@ export default function Dashboard() {
             <span>•</span>
             <span>MEM: {elapsed.years * 365 + elapsed.months * 30 + elapsed.days} memories cached</span>
             <span>•</span>
-            <span className="text-green-400/70">♥ heartbeat: stable</span>
+            <span className="text-green-400/70 inline-flex items-center gap-1">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="#4ade80">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+              heartbeat: stable
+            </span>
           </motion.div>
         </div>
 
