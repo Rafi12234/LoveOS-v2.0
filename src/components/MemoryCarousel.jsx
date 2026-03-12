@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MEMORY_IMAGES } from '../data/relationshipData';
+import { MEMORY_IMAGES, MEMORY_CAPTIONS } from '../data/relationshipData';
 
 export default function MemoryCarousel({ onClose }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -130,10 +130,16 @@ export default function MemoryCarousel({ onClose }) {
                       : 'linear-gradient(to top, rgba(10, 10, 20, 0.6) 0%, rgba(10, 10, 20, 0.2) 100%)',
                   }}
                 />
-                {/* Index label on center card */}
+                {/* Caption on center card */}
                 {offset === 0 && (
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <p className="text-white text-sm font-medium terminal-text text-glow-cyan">
+                  <div className="absolute bottom-0 left-0 right-0 p-4"
+                    style={{ background: 'linear-gradient(to top, rgba(5,5,15,0.9) 0%, rgba(5,5,15,0.5) 60%, transparent 100%)' }}
+                  >
+                    <p className="text-white/90 text-xs md:text-sm font-medium leading-relaxed mb-1"
+                       style={{ textShadow: '0 1px 8px rgba(0,0,0,0.8)' }}>
+                      "{MEMORY_CAPTIONS[idx % MEMORY_CAPTIONS.length]}"
+                    </p>
+                    <p className="text-love-cyan/60 text-[10px] terminal-text">
                       memory_{String(idx + 1).padStart(3, '0')}.jpg
                     </p>
                   </div>
