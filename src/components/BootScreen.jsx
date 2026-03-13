@@ -301,7 +301,7 @@ function BootProgressBar({ progress, phase }) {
 function HeartLoader({ isComplete }) {
   return (
     <motion.div
-      className="absolute top-8 left-1/2 -translate-x-1/2 flex items-center gap-3"
+      className="flex items-center gap-3 mb-3 sm:mb-4 md:mb-6 mt-2 sm:mt-3"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.3, duration: 0.6 }}
@@ -396,7 +396,7 @@ function SystemStats({ progress, isComplete }) {
       initial={{ opacity: 0, x: 30 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ delay: 1, duration: 0.6 }}
-      className="fixed top-8 right-4 md:right-8 z-10 hidden md:block"
+      className="fixed top-4 sm:top-6 md:top-8 right-3 sm:right-4 md:right-6 lg:right-8 z-10 hidden md:block"
     >
       <div
         className="p-3 rounded-xl space-y-2 min-w-[140px]"
@@ -926,7 +926,7 @@ export default function BootScreen({ onComplete }) {
 
   return (
     <motion.div
-      className="fixed inset-0 z-50 flex flex-col items-center justify-center px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6 overflow-hidden"
+      className="fixed inset-0 z-50 flex flex-col items-center px-3 sm:px-4 md:px-6 lg:px-8 py-3 sm:py-4 md:py-6 overflow-y-auto overflow-x-hidden min-h-screen"
       style={{ background: '#0a0a14' }}
       exit={{ opacity: 0, scale: 1.05 }}
       transition={{ duration: 1 }}
@@ -953,6 +953,9 @@ export default function BootScreen({ onComplete }) {
           filter: 'blur(100px)',
           maxWidth: '90vw',
           maxHeight: '90vw',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
         }}
         animate={{
           scale: [1, 1.2, 1],
@@ -968,7 +971,7 @@ export default function BootScreen({ onComplete }) {
             'radial-gradient(circle, rgba(244, 114, 182, 0.25), transparent 70%)',
           filter: 'blur(80px)',
           top: '30%',
-          right: 'max(20%, calc((100vw - 400px) / 2))',
+          right: 'max(5%, calc((100vw - 400px) / 2))',
           maxWidth: '80vw',
           maxHeight: '80vw',
         }}
@@ -985,32 +988,34 @@ export default function BootScreen({ onComplete }) {
         }}
       />
 
-      {/* Heart loader at top */}
-      <HeartLoader isComplete={isComplete} />
+      {/* Centered content wrapper */}
+      <div className="relative z-10 w-full flex flex-col items-center justify-center flex-1 min-h-fit py-4 sm:py-6 md:py-8 lg:py-10">
+        {/* Heart loader at top */}
+        <HeartLoader isComplete={isComplete} />
+
+        {/* Version badge (left side) */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.5 }}
+          className="fixed top-4 sm:top-6 md:top-8 left-3 sm:left-4 md:left-6 lg:left-8 z-10 hidden sm:flex items-center gap-2"
+        >
+          <div
+            className="px-3 py-1.5 rounded-lg"
+            style={{
+              background: 'rgba(15, 15, 35, 0.6)',
+              border: '1px solid rgba(168, 85, 247, 0.15)',
+              backdropFilter: 'blur(12px)',
+            }}
+          >
+            <span className="text-[8px] sm:text-[8.5px] md:text-[9px] terminal-text text-love-violet tracking-widest uppercase">
+              LoveOS v2.0
+            </span>
+          </div>
+        </motion.div>
 
       {/* System stats panel (right side) */}
       <SystemStats progress={progress} isComplete={isComplete} />
-
-      {/* Version badge (left side) */}
-      <motion.div
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 0.5 }}
-        className="fixed top-4 sm:top-6 md:top-8 left-3 sm:left-4 md:left-6 lg:left-8 z-10 hidden sm:flex items-center gap-2"
-      >
-        <div
-          className="px-3 py-1.5 rounded-lg"
-          style={{
-            background: 'rgba(15, 15, 35, 0.6)',
-            border: '1px solid rgba(168, 85, 247, 0.15)',
-            backdropFilter: 'blur(12px)',
-          }}
-        >
-          <span className="text-[8px] sm:text-[8.5px] md:text-[9px] terminal-text text-love-violet tracking-widest uppercase">
-            LoveOS v2.0
-          </span>
-        </div>
-      </motion.div>
 
       {/* Main terminal frame */}
       <TerminalFrame isComplete={isComplete} terminalContentRef={terminalContentRef}>
@@ -1101,7 +1106,7 @@ export default function BootScreen({ onComplete }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2 }}
-          className="absolute bottom-6 flex flex-col items-center gap-2"
+          className="mt-4 sm:mt-6 md:mt-8 mb-4 sm:mb-6 flex flex-col items-center gap-2"
         >
           <motion.div className="flex items-center gap-1.5">
             {[0, 1, 2, 3, 4].map((i) => (
@@ -1125,6 +1130,8 @@ export default function BootScreen({ onComplete }) {
           </p>
         </motion.div>
       )}
+
+      </div>
 
       {/* Bottom gradient fade */}
       <div
