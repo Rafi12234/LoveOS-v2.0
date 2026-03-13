@@ -1112,6 +1112,99 @@ export default function Dashboard() {
     }
   }, []);
 
+  useEffect(() => {
+    let pointerHandler;
+    let keyHandler;
+    let disposed = false;
+
+    const createPlayer = () => {
+      if (disposed || youtubePlayerRef.current || !youtubeContainerRef.current || !window.YT?.Player) {
+        return;
+      }
+
+      youtubePlayerRef.current = new window.YT.Player(youtubeContainerRef.current, {
+        height: '0',
+        width: '0',
+        videoId: YOUTUBE_VIDEO_ID,
+        playerVars: {
+          autoplay: 1,
+          controls: 0,
+          disablekb: 1,
+          fs: 0,
+          loop: 1,
+          modestbranding: 1,
+          playsinline: 1,
+          rel: 0,
+          playlist: YOUTUBE_VIDEO_ID,
+        },
+        events: {
+          onReady: (event) => {
+            if (disposed) return;
+            setMusicReady(true);
+            try {
+              event.target.setVolume(45);
+              event.target.playVideo();
+            } catch {
+              // Browser may block autoplay with sound until interaction.
+            }
+          },
+          onStateChange: (event) => {
+            if (!window.YT?.PlayerState) return;
+
+            if (event.data === window.YT.PlayerState.PLAYING) {
+              setIsMusicPlaying(true);
+            } else if (
+              event.data === window.YT.PlayerState.PAUSED ||
+              event.data === window.YT.PlayerState.ENDED
+            ) {
+              setIsMusicPlaying(false);
+            }
+          },
+        },
+      });
+    };
+
+    const loadYouTubeApi = () => {
+      if (window.YT?.Player) {
+        createPlayer();
+        return;
+      }
+
+      const existingScript = document.querySelector('script[src="https://www.youtube.com/iframe_api"]');
+      if (!existingScript) {
+        const script = document.createElement('script');
+        script.src = 'https://www.youtube.com/iframe_api';
+        script.async = true;
+        document.body.appendChild(script);
+      }
+
+      const previousHandler = window.onYouTubeIframeAPIReady;
+      window.onYouTubeIframeAPIReady = () => {
+        if (typeof previousHandler === 'function') {
+          previousHandler();
+        }
+        createPlayer();
+      };
+    };
+
+    pointerHandler = () => playRomanticSong();
+    keyHandler = () => playRomanticSong();
+    window.addEventListener('pointerdown', pointerHandler);
+    window.addEventListener('keydown', keyHandler);
+
+    loadYouTubeApi();
+
+    return () => {
+      disposed = true;
+      window.removeEventListener('pointerdown', pointerHandler);
+      window.removeEventListener('keydown', keyHandler);
+      if (youtubePlayerRef.current?.destroy) {
+        youtubePlayerRef.current.destroy();
+      }
+      youtubePlayerRef.current = null;
+    };
+  }, [playRomanticSong]);
+
   const fireCelebration = useCallback(() => {
     const duration = 8000;
     const end = Date.now() + duration;
@@ -1151,6 +1244,8 @@ export default function Dashboard() {
           background: 'linear-gradient(90deg, #f472b6, #a855f7, #00f0ff)',
         }}
       />
+
+      <div ref={youtubeContainerRef} className="fixed top-0 left-0 w-0 h-0 overflow-hidden opacity-0 pointer-events-none" aria-hidden="true" />
 
       <motion.div
         initial={{ opacity: 0 }}
