@@ -7,6 +7,8 @@ import confetti from 'canvas-confetti';
 import TerminalPanel from './TerminalPanel';
 import Footer from './Footer';
 
+const YOUTUBE_VIDEO_ID = 'cNGjD0VG4R8';
+
 /* ════════════════════════════════════════════════════════
    ✨ PARTICLE FIELD — Floating luminous particles
    ════════════════════════════════════════════════════════ */
@@ -1045,8 +1047,14 @@ export default function Dashboard() {
   const countdown = useCountdown(ANNIVERSARY_DATE);
   const elapsed = useElapsedTime(RELATIONSHIP_START);
   const terminalRef = useRef(null);
+  const youtubeContainerRef = useRef(null);
+  const youtubePlayerRef = useRef(null);
+  const userStartedMusicRef = useRef(false);
   const [anniversaryReached, setAnniversaryReached] = useState(false);
   const [showSurprise, setShowSurprise] = useState(false);
+  const [isMusicPlaying, setIsMusicPlaying] = useState(false);
+  const [musicReady, setMusicReady] = useState(false);
+  const [musicVolume, setMusicVolume] = useState(45);
   const confettiFired = useRef(false);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
@@ -1054,6 +1062,54 @@ export default function Dashboard() {
   // Scroll to top on mount
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, []);
+
+  const playRomanticSong = useCallback(() => {
+    const player = youtubePlayerRef.current;
+    userStartedMusicRef.current = true;
+
+    if (!player?.playVideo) {
+      return false;
+    }
+
+    try {
+      player.playVideo();
+      return true;
+    } catch {
+      return false;
+    }
+  }, []);
+
+  const pauseRomanticSong = useCallback(() => {
+    const player = youtubePlayerRef.current;
+    if (!player?.pauseVideo) {
+      setIsMusicPlaying(false);
+      return;
+    }
+
+    try {
+      player.pauseVideo();
+    } catch {
+      // Ignore player pause failures.
+    }
+    setIsMusicPlaying(false);
+  }, []);
+
+  const toggleRomanticSong = useCallback(() => {
+    if (isMusicPlaying) {
+      pauseRomanticSong();
+      return;
+    }
+    playRomanticSong();
+  }, [isMusicPlaying, pauseRomanticSong, playRomanticSong]);
+
+  const handleVolumeChange = useCallback((newVolume) => {
+    setMusicVolume(newVolume);
+    try {
+      youtubePlayerRef.current?.setVolume(newVolume);
+    } catch {
+      // Ignore if player not ready.
+    }
   }, []);
 
   const fireCelebration = useCallback(() => {
@@ -1616,12 +1672,86 @@ export default function Dashboard() {
             >
               <h3 className="text-sm font-bold text-love-violet terminal-text mb-1">Now Playing</h3>
               <p className="text-[10px] text-slate-500 terminal-text mb-2">
-                your special song section is ready for {HER_NAME}
+                playing your special song softly, just for {HER_NAME} ♡
               </p>
               <p className="text-[10px] text-love-pink/70 terminal-text mb-4">
-                loading your song and getting it ready...
+                {isMusicPlaying
+                  ? 'your song is playing softly in the background...'
+                  : musicReady
+                    ? 'paused for a moment. tap play and let the song continue...'
+                    : 'loading your song and getting it ready...'}
               </p>
-              <MusicVisualizer isPlaying={false} />
+              <MusicVisualizer isPlaying={isMusicPlaying} />
+              <div className="flex items-center justify-center gap-6 mt-4">
+                <motion.button
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="text-slate-500 hover:text-love-pink transition-colors"
+                  onClick={pauseRomanticSong}
+                  aria-label="Pause romantic song"
+                  disabled={!musicReady}
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M6 5h4v14H6zm8 0h4v14h-4z" />
+                  </svg>
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.15 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="w-10 h-10 rounded-full flex items-center justify-center"
+                  style={{
+                    background: 'linear-gradient(135deg, #f472b6, #a855f7)',
+                  }}
+                  onClick={toggleRomanticSong}
+                  aria-label={isMusicPlaying ? 'Pause romantic song' : 'Play romantic song'}
+                  disabled={!musicReady}
+                >
+                  {isMusicPlaying ? (
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
+                      <path d="M6 5h4v14H6zm8 0h4v14h-4z" />
+                    </svg>
+                  ) : (
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  )}
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="text-slate-500 hover:text-love-pink transition-colors"
+                  onClick={playRomanticSong}
+                  aria-label="Play romantic song"
+                  disabled={!musicReady}
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </motion.button>
+              </div>
+              {/* Volume control */}
+              <div className="flex items-center gap-3 mt-5 px-1">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="text-slate-500 shrink-0">
+                  <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02z" />
+                </svg>
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  value={musicVolume}
+                  onChange={(e) => handleVolumeChange(Number(e.target.value))}
+                  disabled={!musicReady}
+                  aria-label="Volume"
+                  className="flex-1 h-1 rounded-full appearance-none cursor-pointer"
+                  style={{
+                    background: `linear-gradient(to right, #f472b6 ${musicVolume}%, rgba(168,85,247,0.2) ${musicVolume}%)`,
+                    accentColor: '#f472b6',
+                  }}
+                />
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="text-slate-500 shrink-0">
+                  <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02zM18.5 12c0-2.77-1.56-5.18-4-6.33v12.65c2.44-1.14 4-3.55 4-6.32z" />
+                </svg>
+              </div>
             </div>
           </motion.div>
         </section>
