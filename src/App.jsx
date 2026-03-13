@@ -3,6 +3,7 @@ import { AnimatePresence } from 'framer-motion';
 import BootScreen from './components/BootScreen';
 import Dashboard from './components/Dashboard';
 import BackgroundEffects from './components/BackgroundEffects';
+import HeartTrailCursor from './components/HeartTrailCursor';
 
 export default function App() {
   const [booted, setBooted] = useState(false);
@@ -10,6 +11,7 @@ export default function App() {
   return (
     <div className="relative min-h-screen overflow-hidden">
       <BackgroundEffects />
+      <HeartTrailCursor />
       <div className="scanline-overlay" />
 
       <AnimatePresence mode="wait">
