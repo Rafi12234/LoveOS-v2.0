@@ -724,7 +724,7 @@ function BootCelebration({ onComplete }) {
 /* ════════════════════════════════════════════════════════
    🖥 TERMINAL WINDOW FRAME — Boot terminal wrapper
    ════════════════════════════════════════════════════════ */
-function TerminalFrame({ children, isComplete }) {
+function TerminalFrame({ children, isComplete, terminalContentRef }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30, scale: 0.95 }}
@@ -837,7 +837,7 @@ function TerminalFrame({ children, isComplete }) {
         </div>
 
         {/* Terminal content */}
-        <div className="p-3 sm:p-4 md:p-5 lg:p-6 min-h-[250px] sm:min-h-[300px] md:min-h-[350px] lg:min-h-[400px] max-h-[55vh] sm:max-h-[60vh] md:max-h-[65vh] overflow-y-auto custom-scrollbar">
+        <div ref={terminalContentRef} className="p-3 sm:p-4 md:p-5 lg:p-6 min-h-[250px] sm:min-h-[300px] md:min-h-[350px] lg:min-h-[400px] max-h-[55vh] sm:max-h-[60vh] md:max-h-[65vh] overflow-y-auto custom-scrollbar">
           {children}
         </div>
       </div>
@@ -889,6 +889,7 @@ export default function BootScreen({ onComplete }) {
   const [progress, setProgress] = useState(0);
   const [phase, setPhase] = useState('Initializing love kernel...');
   const terminalEndRef = useRef(null);
+  const terminalContentRef = useRef(null);
 
   // Calculate progress based on displayed lines
   useEffect(() => {
@@ -905,9 +906,11 @@ export default function BootScreen({ onComplete }) {
     else setPhase('Boot complete ♥');
   }, [displayedLines.length, isComplete]);
 
-  // Auto-scroll terminal
+  // Auto-scroll terminal smoothly within its container
   useEffect(() => {
-    terminalEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (terminalContentRef.current) {
+      terminalContentRef.current.scrollTop = terminalContentRef.current.scrollHeight;
+    }
   }, [displayedLines]);
 
   // Keyboard shortcut
@@ -1010,7 +1013,7 @@ export default function BootScreen({ onComplete }) {
       </motion.div>
 
       {/* Main terminal frame */}
-      <TerminalFrame isComplete={isComplete}>
+      <TerminalFrame isComplete={isComplete} terminalContentRef={terminalContentRef}>
         {/* Boot lines */}
         {displayedLines.map((line, i) => (
           <motion.div
