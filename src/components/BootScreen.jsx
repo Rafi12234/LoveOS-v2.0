@@ -225,7 +225,7 @@ function BootProgressBar({ progress, phase }) {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.5 }}
-      className="w-full max-w-md mt-8"
+      className="w-full max-w-lg px-4 sm:px-0 mt-6 sm:mt-8"
     >
       {/* Phase text */}
       <div className="flex items-center justify-between mb-2">
@@ -514,7 +514,7 @@ function BootCelebration({ onComplete }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="flex flex-col items-center mt-10 relative"
+      className="flex flex-col items-center mt-6 md:mt-10 relative px-4"
     >
       {/* Success ring burst */}
       {[...Array(3)].map((_, i) => (
@@ -550,7 +550,7 @@ function BootCelebration({ onComplete }) {
         className="mb-4 relative"
       >
         <motion.div
-          className="w-16 h-16 rounded-full flex items-center justify-center"
+          className="w-12 sm:w-16 md:w-20 h-12 sm:h-16 md:h-20 rounded-full flex items-center justify-center"
           style={{
             background:
               'linear-gradient(135deg, rgba(74,222,128,0.15), rgba(168,85,247,0.15))',
@@ -566,8 +566,8 @@ function BootCelebration({ onComplete }) {
           transition={{ duration: 2, repeat: Infinity }}
         >
           <motion.svg
-            width="28"
-            height="28"
+            width="24"
+            height="24"
             viewBox="0 0 24 24"
             fill="none"
             stroke="#4ade80"
@@ -577,6 +577,7 @@ function BootCelebration({ onComplete }) {
             initial={{ pathLength: 0 }}
             animate={{ pathLength: 1 }}
             transition={{ delay: 0.5, duration: 0.6 }}
+            className="w-6 sm:w-7 md:w-8 h-6 sm:h-7 md:h-8"
           >
             <motion.path
               d="M20 6L9 17l-5-5"
@@ -593,7 +594,7 @@ function BootCelebration({ onComplete }) {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
-        className="text-green-400 text-sm terminal-text mb-1 tracking-wider"
+        className="text-green-400 text-xs sm:text-sm md:text-base terminal-text mb-1 tracking-wider"
       >
         ALL SYSTEMS OPERATIONAL
       </motion.p>
@@ -601,7 +602,7 @@ function BootCelebration({ onComplete }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
-        className="text-slate-500 text-[10px] terminal-text mb-6 tracking-widest uppercase"
+        className="text-slate-500 text-[9px] sm:text-[10px] md:text-xs terminal-text mb-6 tracking-widest uppercase"
       >
         Love kernel loaded successfully
       </motion.p>
@@ -614,8 +615,8 @@ function BootCelebration({ onComplete }) {
         onClick={onComplete}
         whileHover={{ scale: 1.08, y: -2 }}
         whileTap={{ scale: 0.95 }}
-        className="relative px-10 py-4 rounded-2xl font-medium text-white
-                   overflow-hidden group focus:outline-none"
+        className="relative px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-2xl font-medium text-white
+                   overflow-hidden group focus:outline-none text-sm sm:text-base"
         style={{
           background:
             'linear-gradient(135deg, rgba(168,85,247,0.2), rgba(244,114,182,0.2))',
@@ -679,7 +680,7 @@ function BootCelebration({ onComplete }) {
               </linearGradient>
             </defs>
           </motion.svg>
-          <span className="text-sm tracking-wide">Enter LoveOS</span>
+          <span className="text-xs sm:text-sm md:text-base tracking-wide">Enter LoveOS</span>
           {/* Arrow icon */}
           <motion.svg
             width="16"
@@ -730,7 +731,7 @@ function TerminalFrame({ children, isComplete }) {
       initial={{ opacity: 0, y: 30, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.8, type: 'spring', stiffness: 100 }}
-      className="relative w-full max-w-2xl"
+      className="relative w-full max-w-7xl px-2 sm:px-4"
     >
       {/* Outer glow */}
       <motion.div
@@ -837,7 +838,7 @@ function TerminalFrame({ children, isComplete }) {
         </div>
 
         {/* Terminal content */}
-        <div className="p-5 md:p-6 min-h-[350px] max-h-[60vh] overflow-y-auto custom-scrollbar">
+        <div className="p-3 sm:p-4 md:p-5 lg:p-6 min-h-[250px] sm:min-h-[300px] md:min-h-[350px] max-h-[55vh] sm:max-h-[60vh] md:max-h-[65vh] overflow-y-auto custom-scrollbar">
           {children}
         </div>
       </div>
@@ -943,8 +944,10 @@ export default function BootScreen({ onComplete }) {
 
       {/* Background glow blobs */}
       <motion.div
-        className="absolute w-[600px] h-[600px] rounded-full opacity-20 pointer-events-none"
+        className="absolute rounded-full opacity-20 pointer-events-none"
         style={{
+          width: 'min(600px, 60vw)',
+          height: 'min(600px, 60vw)',
           background:
             'radial-gradient(circle, rgba(168, 85, 247, 0.2), rgba(0, 240, 255, 0.1), transparent 70%)',
           filter: 'blur(100px)',
@@ -957,13 +960,15 @@ export default function BootScreen({ onComplete }) {
         transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
       />
       <motion.div
-        className="absolute w-[400px] h-[400px] rounded-full opacity-15 pointer-events-none"
+        className="absolute rounded-full opacity-15 pointer-events-none"
         style={{
+          width: 'min(400px, 50vw)',
+          height: 'min(400px, 50vw)',
           background:
             'radial-gradient(circle, rgba(244, 114, 182, 0.25), transparent 70%)',
           filter: 'blur(80px)',
           top: '30%',
-          right: '20%',
+          right: 'max(20px, 5vw)',
         }}
         animate={{
           scale: [1, 1.15, 1],
