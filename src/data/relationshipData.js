@@ -141,9 +141,9 @@ export const MEMORY_IMAGES = [
 export const TERMINAL_COMMANDS = {
   help: {
     output: [
-      '┌──────────────────────────────────────────────────────────────┐',
+      '┌─────────────────────────────────────────────────────────────────┐',
       '│  LoveOS v2.0 — Available Commands                          │',
-      '├──────────────────────────────────────────────────────────────┤',
+      '├─────────────────────────────────────────────────────────────────┤',
       '│                                                            │',
       '│  -- Core Commands --                                       │',
       '│  help                Show this help menu                   │',
@@ -167,14 +167,14 @@ export const TERMINAL_COMMANDS = {
       '│  npm install happiness  Install happiness pkg              │',
       '│  try { love() }      Run love with error handling          │',
       '│  SELECT * FROM heart  Query the heart database             │',
-      '│  g++ compile-love.cpp  Turn feelings into forever code      │',
-      '│  javac heart.java    Prepare our heart promises             │',
-      '│  java heart          Run our forever story                  │',
-      '│  npx next build      Pack our memories beautifully          │',
-      '│  next dev --turbo    Live-preview our love world            │',
-      '│  next route:list     Show our journey map                   │',
+      '│  g++ compile-love.cpp  Turn feelings into forever code     │',
+      '│  javac heart.java    Prepare our heart promises            │',
+      '│  java heart          Run our forever story                 │',
+      '│  npx next build      Pack our memories beautifully         │',
+      '│  next dev --turbo    Live-preview our love world           │',
+      '│  next route:list     Show our journey map                  │',
       '│                                                            │',
-      '└──────────────────────────────────────────────────────────────┘',
+      '└─────────────────────────────────────────────────────────────────┘',
     ],
   },
   whoami: {
