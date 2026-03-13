@@ -158,7 +158,7 @@ function DNAHelix({ side }) {
   return (
     <div
       className={`fixed top-0 bottom-0 ${side === 'left' ? 'left-4 md:left-8' : 'right-4 md:right-8'} 
-        flex flex-col items-center justify-center pointer-events-none z-0 opacity-20 hidden lg:flex`}
+        flex-col items-center justify-center pointer-events-none z-0 opacity-20 hidden lg:flex`}
     >
       <motion.div
         animate={{ y: [0, -20, 0] }}
@@ -225,7 +225,7 @@ function BootProgressBar({ progress, phase }) {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.5 }}
-      className="w-full max-w-lg px-4 sm:px-0 mt-6 sm:mt-8"
+      className="w-full max-w-md mt-4 sm:mt-6 md:mt-7 lg:mt-8"
     >
       {/* Phase text */}
       <div className="flex items-center justify-between mb-2">
@@ -233,11 +233,11 @@ function BootProgressBar({ progress, phase }) {
           key={phase}
           initial={{ opacity: 0, x: -10 }}
           animate={{ opacity: 1, x: 0 }}
-          className="text-[10px] terminal-text text-slate-500 tracking-wider uppercase"
+          className="text-[8px] sm:text-[9px] md:text-[10px] terminal-text text-slate-500 tracking-wider uppercase"
         >
           {phase}
         </motion.span>
-        <span className="text-[10px] terminal-text text-love-cyan">
+        <span className="text-[8px] sm:text-[9px] md:text-[10px] terminal-text text-love-cyan">
           {Math.round(progress)}%
         </span>
       </div>
@@ -284,10 +284,10 @@ function BootProgressBar({ progress, phase }) {
 
       {/* Sub-info */}
       <div className="flex items-center justify-between mt-1.5">
-        <span className="text-[8px] terminal-text text-slate-600">
+        <span className="text-[7px] sm:text-[7.5px] md:text-[8px] terminal-text text-slate-600">
           PID: 0x{Math.floor(progress * 42).toString(16).toUpperCase().padStart(4, '0')}
         </span>
-        <span className="text-[8px] terminal-text text-slate-600">
+        <span className="text-[7px] sm:text-[7.5px] md:text-[8px] terminal-text text-slate-600">
           MEM: {(progress * 0.84).toFixed(1)}MB / 84.0MB
         </span>
       </div>
@@ -514,7 +514,7 @@ function BootCelebration({ onComplete }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="flex flex-col items-center mt-6 md:mt-10 relative px-4"
+      className="flex flex-col items-center mt-10 relative"
     >
       {/* Success ring burst */}
       {[...Array(3)].map((_, i) => (
@@ -550,7 +550,7 @@ function BootCelebration({ onComplete }) {
         className="mb-4 relative"
       >
         <motion.div
-          className="w-12 sm:w-16 md:w-20 h-12 sm:h-16 md:h-20 rounded-full flex items-center justify-center"
+          className="w-12 sm:w-14 md:w-16 lg:w-20 h-12 sm:h-14 md:h-16 lg:h-20 rounded-full flex items-center justify-center"
           style={{
             background:
               'linear-gradient(135deg, rgba(74,222,128,0.15), rgba(168,85,247,0.15))',
@@ -566,8 +566,8 @@ function BootCelebration({ onComplete }) {
           transition={{ duration: 2, repeat: Infinity }}
         >
           <motion.svg
-            width="24"
-            height="24"
+            width="28"
+            height="28"
             viewBox="0 0 24 24"
             fill="none"
             stroke="#4ade80"
@@ -577,7 +577,6 @@ function BootCelebration({ onComplete }) {
             initial={{ pathLength: 0 }}
             animate={{ pathLength: 1 }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="w-6 sm:w-7 md:w-8 h-6 sm:h-7 md:h-8"
           >
             <motion.path
               d="M20 6L9 17l-5-5"
@@ -594,7 +593,7 @@ function BootCelebration({ onComplete }) {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
-        className="text-green-400 text-xs sm:text-sm md:text-base terminal-text mb-1 tracking-wider"
+        className="text-green-400 text-xs sm:text-sm md:text-base terminal-text mb-1 sm:mb-2 tracking-wider"
       >
         ALL SYSTEMS OPERATIONAL
       </motion.p>
@@ -602,7 +601,7 @@ function BootCelebration({ onComplete }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
-        className="text-slate-500 text-[9px] sm:text-[10px] md:text-xs terminal-text mb-6 tracking-widest uppercase"
+        className="text-slate-500 text-[8px] sm:text-[9px] md:text-[10px] terminal-text mb-4 sm:mb-5 md:mb-6 tracking-widest uppercase"
       >
         Love kernel loaded successfully
       </motion.p>
@@ -615,8 +614,8 @@ function BootCelebration({ onComplete }) {
         onClick={onComplete}
         whileHover={{ scale: 1.08, y: -2 }}
         whileTap={{ scale: 0.95 }}
-        className="relative px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-2xl font-medium text-white
-                   overflow-hidden group focus:outline-none text-sm sm:text-base"
+        className="relative px-10 py-4 rounded-2xl font-medium text-white
+                   overflow-hidden group focus:outline-none"
         style={{
           background:
             'linear-gradient(135deg, rgba(168,85,247,0.2), rgba(244,114,182,0.2))',
@@ -680,7 +679,7 @@ function BootCelebration({ onComplete }) {
               </linearGradient>
             </defs>
           </motion.svg>
-          <span className="text-xs sm:text-sm md:text-base tracking-wide">Enter LoveOS</span>
+          <span className="text-sm tracking-wide">Enter LoveOS</span>
           {/* Arrow icon */}
           <motion.svg
             width="16"
@@ -731,7 +730,7 @@ function TerminalFrame({ children, isComplete }) {
       initial={{ opacity: 0, y: 30, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.8, type: 'spring', stiffness: 100 }}
-      className="relative w-full max-w-7xl px-2 sm:px-4"
+      className="relative w-full max-w-2xl"
     >
       {/* Outer glow */}
       <motion.div
@@ -838,7 +837,7 @@ function TerminalFrame({ children, isComplete }) {
         </div>
 
         {/* Terminal content */}
-        <div className="p-3 sm:p-4 md:p-5 lg:p-6 min-h-[250px] sm:min-h-[300px] md:min-h-[350px] max-h-[55vh] sm:max-h-[60vh] md:max-h-[65vh] overflow-y-auto custom-scrollbar">
+        <div className="p-3 sm:p-4 md:p-5 lg:p-6 min-h-[250px] sm:min-h-[300px] md:min-h-[350px] lg:min-h-[400px] max-h-[55vh] sm:max-h-[60vh] md:max-h-[65vh] overflow-y-auto custom-scrollbar">
           {children}
         </div>
       </div>
@@ -924,7 +923,7 @@ export default function BootScreen({ onComplete }) {
 
   return (
     <motion.div
-      className="fixed inset-0 z-50 flex flex-col items-center justify-center px-4 md:px-6"
+      className="fixed inset-0 z-50 flex flex-col items-center justify-center px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6 overflow-hidden"
       style={{ background: '#0a0a14' }}
       exit={{ opacity: 0, scale: 1.05 }}
       transition={{ duration: 1 }}
@@ -944,13 +943,13 @@ export default function BootScreen({ onComplete }) {
 
       {/* Background glow blobs */}
       <motion.div
-        className="absolute rounded-full opacity-20 pointer-events-none"
+        className="absolute w-[600px] h-[600px] rounded-full opacity-20 pointer-events-none"
         style={{
-          width: 'min(600px, 60vw)',
-          height: 'min(600px, 60vw)',
           background:
             'radial-gradient(circle, rgba(168, 85, 247, 0.2), rgba(0, 240, 255, 0.1), transparent 70%)',
           filter: 'blur(100px)',
+          maxWidth: '90vw',
+          maxHeight: '90vw',
         }}
         animate={{
           scale: [1, 1.2, 1],
@@ -960,15 +959,15 @@ export default function BootScreen({ onComplete }) {
         transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
       />
       <motion.div
-        className="absolute rounded-full opacity-15 pointer-events-none"
+        className="absolute w-[400px] h-[400px] rounded-full opacity-15 pointer-events-none"
         style={{
-          width: 'min(400px, 50vw)',
-          height: 'min(400px, 50vw)',
           background:
             'radial-gradient(circle, rgba(244, 114, 182, 0.25), transparent 70%)',
           filter: 'blur(80px)',
           top: '30%',
-          right: 'max(20px, 5vw)',
+          right: 'max(20%, calc((100vw - 400px) / 2))',
+          maxWidth: '80vw',
+          maxHeight: '80vw',
         }}
         animate={{
           scale: [1, 1.15, 1],
@@ -994,7 +993,7 @@ export default function BootScreen({ onComplete }) {
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.5 }}
-        className="fixed top-8 left-4 md:left-8 z-10 hidden md:flex items-center gap-2"
+        className="fixed top-4 sm:top-6 md:top-8 left-3 sm:left-4 md:left-6 lg:left-8 z-10 hidden sm:flex items-center gap-2"
       >
         <div
           className="px-3 py-1.5 rounded-lg"
@@ -1004,7 +1003,7 @@ export default function BootScreen({ onComplete }) {
             backdropFilter: 'blur(12px)',
           }}
         >
-          <span className="text-[9px] terminal-text text-love-violet tracking-widest uppercase">
+          <span className="text-[8px] sm:text-[8.5px] md:text-[9px] terminal-text text-love-violet tracking-widest uppercase">
             LoveOS v2.0
           </span>
         </div>
@@ -1019,7 +1018,7 @@ export default function BootScreen({ onComplete }) {
             initial={{ opacity: 0, x: -8 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.15 }}
-            className={`py-[3px] flex items-start gap-0 text-sm md:text-[13px] leading-relaxed ${
+            className={`py-[2px] sm:py-[2.5px] md:py-[3px] flex items-start gap-0 text-xs sm:text-sm md:text-[13px] lg:text-[14px] leading-relaxed ${
               line.includes('Perfect Match') || line.includes('Boot successful')
                 ? 'text-green-400'
                 : line.includes('Welcome')
@@ -1118,7 +1117,7 @@ export default function BootScreen({ onComplete }) {
               />
             ))}
           </motion.div>
-          <p className="text-[10px] text-slate-600 terminal-text tracking-widest uppercase">
+          <p className="text-[8px] sm:text-[9px] md:text-[10px] text-slate-600 terminal-text tracking-widest uppercase">
             Preparing your universe
           </p>
         </motion.div>
