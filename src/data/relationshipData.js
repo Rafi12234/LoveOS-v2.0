@@ -162,7 +162,6 @@ export const TERMINAL_COMMANDS = {
       '│  -- Dev Commands --                                        │',
       '│  console.log(love)   Print the love object                 │',
       '│  git diff heart      See what you changed in me            │',
-      '│  git blame smile     Who made me smile?                    │',
       '│  ping heart          Test heart connection                 │',
       '│  cat reasons.txt     Read why I love you                   │',
       '│  npm install happiness  Install happiness pkg              │',
@@ -518,20 +517,6 @@ export const TERMINAL_COMMANDS = {
       '     No force on earth can sudo rm this.',
     ],
   },
-  'git blame smile': {
-    output: [
-      '> git blame smile.js',
-      '',
-      `a1b2c3d (${HER_NAME}  2024-03-14) line 1: Made me smile for the first time`,
-      `e4f5g6h (${HER_NAME}  2024-06-20) line 2: Made me laugh until I cried`,
-      `i7j8k9l (${HER_NAME}  2024-12-25) line 3: Made my whole year with one look`,
-      `m0n1o2p (${HER_NAME}  2025-03-14) line 4: Made our first anniversary unforgettable`,
-      `q3r4s5t (${HER_NAME}  2025-08-10) line 5: Made a random Tuesday the best day ever`,
-      `u6v7w8x (${HER_NAME}  2026-03-14) line 6: Still making me smile, 2 years later`,
-      '',
-      '// Every good thing in smile.js is authored by you.',
-    ],
-  },
   'man love': {
     output: [
       '> man love',
@@ -807,7 +792,6 @@ export const QUICK_COMMANDS = [
   'ping heart',
   'cat reasons.txt',
   'sudo love --force',
-  'git blame smile',
   'import love',
   'status',
 ];
