@@ -439,7 +439,6 @@ export const TERMINAL_COMMANDS = {
       'Note: DELETE or DROP operations permanently blocked.',
     ],
   },
-  'rm -rf doubts': {
   'g++ compile-love.cpp': {
     output: [
       '> g++ -std=c++20 compile-love.cpp -o forever.exe',
@@ -471,7 +470,6 @@ export const TERMINAL_COMMANDS = {
       `     Partner set to: ${HER_NAME}`,
     ],
   },
-  'grep -r "i miss you"': {
   'java heart': {
     output: [
       '> java Heart --mode=forever',
@@ -512,7 +510,6 @@ export const TERMINAL_COMMANDS = {
       '[ok] Your love gift is ready to share.',
     ],
   },
-  'man love': {
   'next dev --turbo': {
     output: [
       '> next dev --turbo',

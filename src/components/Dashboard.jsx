@@ -1142,7 +1142,7 @@ export default function Dashboard() {
             if (disposed) return;
             setMusicReady(true);
             try {
-              event.target.setVolume(45);
+              event.target.setVolume(musicVolume);
               event.target.playVideo();
             } catch {
               // Browser may block autoplay with sound until interaction.
