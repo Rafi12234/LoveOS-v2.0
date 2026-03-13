@@ -666,6 +666,49 @@ function LoveLetterCard() {
 /* ════════════════════════════════════════════════════════
    🎵 MUSIC VISUALIZER — Fake audio bars
    ════════════════════════════════════════════════════════ */
+function MusicVisualizer({ isPlaying }) {
+  const bars = 24;
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      className="flex items-end justify-center gap-[3px] h-12"
+    >
+      {Array.from({ length: bars }).map((_, i) => (
+        <motion.div
+          key={i}
+          className="w-[3px] rounded-full"
+          style={{
+            background: `linear-gradient(to top, #f472b6, #a855f7, #00f0ff)`,
+          }}
+          animate={isPlaying ? {
+            height: [
+              `${8 + Math.random() * 15}px`,
+              `${20 + Math.random() * 28}px`,
+              `${5 + Math.random() * 20}px`,
+              `${15 + Math.random() * 25}px`,
+              `${8 + Math.random() * 15}px`,
+            ],
+          } : {
+            height: `${8 + (i % 5) * 4}px`,
+            opacity: 0.45,
+          }}
+          transition={isPlaying ? {
+            duration: 1.2 + Math.random() * 0.8,
+            repeat: Infinity,
+            ease: 'easeInOut',
+            delay: i * 0.05,
+          } : {
+            duration: 0.25,
+            ease: 'easeOut',
+          }}
+        />
+      ))}
+    </motion.div>
+  );
+}
+
 /* ════════════════════════════════════════════════════════
    🌸 FLOATING ACTION BUTTON — Quick love note
    ════════════════════════════════════════════════════════ */
@@ -1553,6 +1596,34 @@ export default function Dashboard() {
             </p>
           </motion.div>
           <LoveTimeline />
+        </section>
+
+        {/* ═══ MUSIC VISUALIZER SECTION ═══ */}
+        <section className="px-4 md:px-8 py-12">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="max-w-md mx-auto text-center"
+          >
+            <div
+              className="p-6 rounded-2xl"
+              style={{
+                background: 'rgba(15, 15, 35, 0.6)',
+                border: '1px solid rgba(168,85,247,0.15)',
+                backdropFilter: 'blur(8px)',
+              }}
+            >
+              <h3 className="text-sm font-bold text-love-violet terminal-text mb-1">Now Playing</h3>
+              <p className="text-[10px] text-slate-500 terminal-text mb-2">
+                your special song section is ready for {HER_NAME}
+              </p>
+              <p className="text-[10px] text-love-pink/70 terminal-text mb-4">
+                loading your song and getting it ready...
+              </p>
+              <MusicVisualizer isPlaying={false} />
+            </div>
+          </motion.div>
         </section>
 
         {/* ═══ TERMINAL SECTION ═══ */}
